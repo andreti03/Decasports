@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'DECASPORTS.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Proyecto',
+        'NAME': 'ProyectoPrueba',
         'USER': 'postgres',
-        'PASSWORD': 'J1000334474',
+        'PASSWORD': 'Camilito12.',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
