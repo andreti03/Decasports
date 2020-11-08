@@ -8,4 +8,4 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=30)
     birthdate = models.DateField()
     phone_number = models.IntegerField()
-    address_id = models.ForeignKey(Address, on_delete=CASCADE)
+    address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
