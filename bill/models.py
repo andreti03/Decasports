@@ -1,5 +1,7 @@
 from django.db import models
+from customers.models import Customer
 from shopping_cart.models import Shopping_cart
+
 
 
 class Bill(models.Model):
