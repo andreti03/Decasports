@@ -46,6 +46,13 @@ INSTALLED_APPS = [
     'products',
     'shopping_cart',
     'customers',
+    'admi',
+    'cart_product',
+    'city',
+    'customer_email',
+    'delivery',
+    'tradesman',
+    'units_per_size',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Proyecto',
         'USER': 'postgres',
-        'PASSWORD': 'J1000334474',
+        'PASSWORD': 'postgres',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

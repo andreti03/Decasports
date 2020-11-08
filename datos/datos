@@ -1,0 +1,1075 @@
+from categories.models import Sport
+
+Sport1 = Sport(sport_id = 1,
+         sport_name = 'Futbol')
+
+Sport2 = Sport(sport_id = 2,
+         sport_name = 'Basketball')
+
+Sport3 = Sport(sport_id = 3,
+         sport_name = 'Ping-Pong')
+
+Sport4 = Sport(sport_id = 4,
+         sport_name = 'Natación')
+
+Sport5 = Sport(sport_id = 5,
+         sport_name = 'Boxeo')
+
+Sport6 = Sport(sport_id = 6,
+         sport_name = 'Taekwondo')
+
+Sport7 = Sport(sport_id = 7,
+         sport_name = 'Atletismo')
+
+Sport8 = Sport(sport_id = 8,
+         sport_name = 'Ciclismo')
+
+Sport1.save()
+Sport2.save()
+Sport3.save()
+Sport4.save()
+Sport5.save()
+Sport6.save()
+Sport7.save()
+Sport8.save()
+
+from admi.models import Admi
+
+Admi1 = Admi(admi_id = 1,
+         admi_name = 'Julián',
+         admi_last_name = 'Castro')
+
+Admi2 = Admi(admi_id = 2,
+         admi_name = 'Camilo',
+         admi_last_name = 'Gomez')
+
+Admi3 = Admi(admi_id = 3,
+         admi_name = 'Andrés',
+         admi_last_name = 'Cuervo')
+
+Admi4 = Admi(admi_id = 4,
+         admi_name = 'Samuel',
+         admi_last_name = 'Restrepo')
+
+Admi1.save()
+Admi2.save()
+Admi3.save()
+Admi4.save()
+
+from tradesman.models import Tradesman
+
+Tradesman1 = Tradesman(employer_id = 1,  
+     	     dni = '1018966155',
+             first_name ='Carlos',       
+             last_name = 'Dueñas',       
+             phone_number = '3102710701')
+
+Tradesman2 = Tradesman(employer_id = 2,  
+     	     dni = '1017575929',
+             first_name ='José',       
+             last_name = 'Martínez',       
+             phone_number = '3005766250')
+
+Tradesman3 = Tradesman(employer_id = 3,  
+     	     dni = '1115359568',
+             first_name ='Gregorio',       
+             last_name = 'Rodríguez',       
+             phone_number = '3102680177')
+
+Tradesman4 = Tradesman(employer_id = 4,  
+     	     dni = '1293858300',
+             first_name ='Juan',       
+             last_name = 'Jaramillo',       
+             phone_number = '3102283095')
+
+Tradesman5 = Tradesman(employer_id = 5,  
+     	     dni = '1380455471',
+             first_name ='Rubén',       
+             last_name = 'Char',       
+             phone_number = '3206823074')
+
+Tradesman1.save()
+Tradesman2.save()
+Tradesman3.save()
+Tradesman4.save()
+Tradesman5.save()
+
+from city.models import City
+
+City1 = City(city_id = 1,
+        city_name = 'Bogotá',
+        country = 'Colombia')
+
+City2 = City(city_id = 2,
+        city_name = 'Ibagué',
+        country = 'Colombia')
+
+City3 = City(city_id = 3,
+        city_name = 'Medellín',
+        country = 'Colombia')
+
+City4 = City(city_id = 4,
+        city_name = 'Cali',
+        country = 'Colombia')
+
+City5 = City(city_id = 5,
+        city_name = 'Barranquilla',
+        country = 'Colombia')
+
+City6 = City(city_id = 6,
+        city_name = 'Cartagena',
+        country = 'Colombia')
+
+City7 = City(city_id = 7,
+        city_name = 'Manizales',
+        country = 'Colombia')
+
+City8 = City(city_id = 8,
+        city_name = 'Armenia',
+        country = 'Colombia')
+
+City1.save()
+City2.save()
+City3.save()
+City4.save()
+City5.save()
+City6.save()
+City7.save()
+City8.save()
+
+from address.models import Address
+
+Address1 = Address(address_id = 1,
+           address = 'Cra 10 133-21',
+           city_id = City1)
+
+Address2 = Address(address_id = 2,
+           address = 'Cll 167 #60A-40',
+           city_id = City1)
+
+Address3 = Address(address_id = 3,
+           address = 'Cra 3A #44-42',
+           city_id = City2)
+
+Address4 = Address(address_id = 4,
+           address = 'Cra 56A No. 51 - 81',
+           city_id = City3)
+
+Address5 = Address(address_id = 5,
+           address = 'Cll 51 #51-55',
+           city_id = City3)
+
+Address6 = Address(address_id = 6,
+           address = 'Calle 6 Oeste #10 Oeste',
+           city_id = City4)
+
+Address7 = Address(address_id = 7,
+           address = 'Cra 54 No. 68 - 80',
+           city_id = City5)
+
+Address8 = Address(address_id = 8,
+           address = 'Carrera 10A No. 20 - 40',
+           city_id = City6)
+
+Address9 = Address(address_id = 9,
+           address = 'Calle 20 No. 22 - 27',
+           city_id = City7)
+
+Address10 = Address(address_id = 10,
+           address = 'Cra 13 #22-22',
+           city_id = City8)
+
+Address1.save()
+Address2.save()
+Address3.save()
+Address4.save()
+Address5.save()
+Address6.save()
+Address7.save()
+Address8.save()
+Address9.save()
+Address10.save()
+
+from customer_email.models import Email
+
+Email1 = Email(email_id = 1,
+         email = 'elbichocr7@gmail.com',
+         e_password = 'SIU12345')
+
+Email2 = Email(email_id = 2,
+         email = 'pedritor26@hotmail.com',
+         e_password = '26041998')
+
+Email3 = Email(email_id = 3,
+         email = 'ppalacios8@gmail.com',
+         e_password = 'PP2005')
+
+Email4 = Email(email_id = 4,
+         email = 'apontesimon@gmail.com',
+         e_password = '3501723872')
+
+Email5 = Email(email_id = 5,
+         email = 'vladotorres@hotmail.com',
+         e_password = '12345678')
+
+Email6 = Email(email_id = 6,
+         email = 'ridu1982@gmail.com',
+         e_password = 'Duque1982')
+
+Email7 = Email(email_id = 7,
+         email = 'jorlopez384@gmail.com',
+         e_password = 'Zelop384')
+
+Email8 = Email(email_id = 8,
+         email = 'jmarquez123@yahoo.com',
+         e_password = 'MARQUEZ0310')
+
+Email9 = Email(email_id = 9,
+         email = 'martinc@gmail.com',
+         e_password = '1974MC_1')
+
+Email10 = Email(email_id = 10,
+         email = 'crodriguez27@gmail.com',
+         e_password = 'Cr270298')
+
+Email1.save()
+Email2.save()
+Email3.save()
+Email4.save()
+Email5.save()
+Email6.save()
+Email7.save()
+Email8.save()
+Email9.save()
+Email10.save()
+
+from customers.models import Customer
+
+Customer1 = Customer(customer_id = 1,
+            first_name = 'Cristiano',
+            last_name = 'Ronaldo',  
+            birthdate = '1985-2-5',
+            phone_number = 3010895578,      
+            address_id = Address1,  
+            email_id = Email1)
+
+Customer2 = Customer(customer_id = 2,
+            first_name = 'Pedro',
+            last_name = 'Ramírez',  
+            birthdate = '1998-4-26',
+            phone_number = 3027423911,      
+            address_id = Address2,  
+            email_id = Email2)
+
+Customer3 = Customer(customer_id = 3,
+            first_name = 'Simón',
+            last_name = 'Aponte',  
+            birthdate = '1986-3-13',
+            phone_number = 3184379454,      
+            address_id = Address3,  
+            email_id = Email3)
+
+Customer4 = Customer(customer_id = 4,
+            first_name = 'Vladimir',
+            last_name = 'Torres',  
+            birthdate = '1969-4-9',
+            phone_number = 3501723872,      
+            address_id = Address4,  
+            email_id = Email4)
+
+Customer5 = Customer(customer_id = 5,
+            first_name = 'Ricardo',
+            last_name = 'Duque',  
+            birthdate = '1985-2-5',
+            phone_number = 3124385630,      
+            address_id = Address5,  
+            email_id = Email5)
+
+Customer6 = Customer(customer_id = 6,
+            first_name = 'Jorge',
+            last_name = 'López',  
+            birthdate = '1995-2-5',
+            phone_number = 3108423648,      
+            address_id = Address6,  
+            email_id = Email6)
+
+Customer7 = Customer(customer_id = 7,
+            first_name = 'Juan',
+            last_name = 'Marquez',  
+            birthdate = '1989-5-16',
+            phone_number = 3170067352,      
+            address_id = Address7,  
+            email_id = Email7)
+
+Customer8 = Customer(customer_id = 8,
+            first_name = 'Pablo',
+            last_name = 'Palacios',  
+            birthdate = '2005-11-13',
+            phone_number = 3067367483,      
+            address_id = Address8,  
+            email_id = Email8)
+
+Customer9 = Customer(customer_id = 9,
+            first_name = 'Martin',
+            last_name = 'Cano',  
+            birthdate = '1974-8-11',
+            phone_number = 3116289262,      
+            address_id = Address9,  
+            email_id = Email9)
+
+Customer10 = Customer(customer_id = 10,
+            first_name = 'Carlos',
+            last_name = 'Rodriguez',  
+            birthdate = '1998-2-27',
+            phone_number = 3001658679,      
+            address_id = Address10,  
+            email_id = Email10)
+
+Customer1.save()
+Customer2.save()
+Customer3.save()
+Customer4.save()
+Customer5.save()
+Customer6.save()
+Customer7.save()
+Customer8.save()
+Customer9.save()
+Customer10.save()
+
+from products.models import Product
+
+Product1 = Product(product_id = 1,
+           product_name = 'Balón de Fútbol',
+           price = 20000,
+           product_sport_id = Sport1,
+           admin_id = Admi3)
+
+Product2 = Product(product_id = 2,
+           product_name = 'Guantes Arquero',
+           price = 60000,
+           product_sport_id = Sport1,
+           admin_id = Admi1)
+
+Product3 = Product(product_id = 3,
+           product_name = 'Raqueta de Ping Pong',
+           price = 50000,
+           product_sport_id = Sport3,
+           admin_id = Admi2)
+
+Product4 = Product(product_id = 4,
+           product_name = 'Caja de pelotas de Ping Pong',
+           price = 15000,
+           product_sport_id = Sport3,
+           admin_id = Admi1)
+
+Product5 = Product(product_id = 5,
+           product_name = 'Malla de Ping Pong',
+           price = 40000,
+           product_sport_id = Sport3,
+           admin_id = Admi3)
+
+Product6 = Product(product_id = 6,
+           product_name = 'Gafas de natación',
+           price = 25000,
+           product_sport_id = Sport4,
+           admin_id = Admi4)
+
+Product7 = Product(product_id = 7,
+           product_name = 'Traje de baño hombre',
+           price = 35000,
+           product_sport_id = Sport4,
+           admin_id = Admi1)
+
+Product8 = Product(product_id = 8,
+           product_name = 'Traje de baño mujer',
+           price = 45000,
+           product_sport_id = Sport4,
+           admin_id = Admi2)
+
+Product9 = Product(product_id = 9,
+           product_name = 'Balón Basketball',
+           price = 35000,
+           product_sport_id = Sport2,
+           admin_id = Admi4)
+
+Product10 = Product(product_id = 10,
+           product_name = 'Guantes de boxeo',
+           price = 70000,
+           product_sport_id = Sport5,
+           admin_id = Admi2)
+
+Product11 = Product(product_id = 11,
+           product_name = 'Protector Dental',
+           price = 15000,
+           product_sport_id = Sport5,
+           admin_id = Admi1)
+
+Product12 = Product(product_id = 12,
+           product_name = 'Tennis',
+           price = 110000,
+           product_sport_id = Sport7,
+           admin_id = Admi4)
+
+Product13 = Product(product_id = 13,
+           product_name = 'Sudadera',
+           price = 80000,
+           product_sport_id = Sport7,
+           admin_id = Admi3)
+
+Product14 = Product(product_id = 14,
+           product_name = 'Bicicleta',
+           price = 2500000,
+           product_sport_id = Sport8,
+           admin_id = Admi2)
+
+Product15 = Product(product_id = 15,
+           product_name = 'Casco',
+           price = 30000,
+           product_sport_id = Sport8,
+           admin_id = Admi1)
+
+Product16 = Product(product_id = 16,
+           product_name = 'Dobok',
+           price = 90000,
+           product_sport_id = Sport6,
+           admin_id = Admi2)
+
+Product17 = Product(product_id = 17,
+           product_name = 'Casco Protector',
+           price = 35000,
+           product_sport_id = Sport6,
+           admin_id = Admi2)
+
+Product18 = Product(product_id = 18,
+           product_name = 'Aro para la casa',
+           price = 40000,
+           product_sport_id = Sport2,
+           admin_id = Admi4)
+
+Product19 = Product(product_id = 19,
+           product_name = 'Botella para agua',
+           price = 7000,
+           product_sport_id = Sport7,
+           admin_id = Admi3)
+
+Product20 = Product(product_id = 20,
+           product_name = 'Cronómetro',
+           price = 55000,
+           product_sport_id = Sport7,
+           admin_id = Admi1)
+
+Product1.save()
+Product2.save()
+Product3.save()
+Product4.save()
+Product5.save()
+Product6.save()
+Product7.save()
+Product8.save()
+Product9.save()
+Product10.save()
+Product11.save()
+Product12.save()
+Product13.save()
+Product14.save()
+Product15.save()
+Product16.save()
+Product17.save()
+Product18.save()
+Product19.save()
+Product20.save()
+
+from shopping_cart.models import Shopping_cart
+
+
+Shopping_cart1 = Shopping_cart(cart_id = 1,
+                 effective_date = '2019-9-11',
+                 total = 27000,
+                 customer_id = Customer1)
+
+Shopping_cart2 = Shopping_cart(cart_id = 2,
+                 effective_date = '2020-8-27',
+                 total = 105000,
+                 customer_id = Customer2)
+
+Shopping_cart3 = Shopping_cart(cart_id = 3,
+                 effective_date = '2019-12-18',
+                 total = 60000,
+                 customer_id = Customer3)
+
+Shopping_cart4 = Shopping_cart(cart_id = 4,
+                 effective_date = '2020-10-16',
+                 total = 190000,
+                 customer_id = Customer4)
+
+Shopping_cart5 = Shopping_cart(cart_id = 5,
+                 effective_date = '2019-9-16',
+                 total = 75000,
+                 customer_id = Customer5)
+
+Shopping_cart6 = Shopping_cart(cart_id = 6,
+                 effective_date = '2020-6-5',
+                 total = 180000,
+                 customer_id = Customer6)
+
+Shopping_cart7 = Shopping_cart(cart_id = 7,
+                 effective_date = '2020-8-15',
+                 total = 175000,
+                 customer_id = Customer7)
+
+Shopping_cart8 = Shopping_cart(cart_id = 8,
+                 effective_date = '2020-1-22',
+                 total = 60000,
+                 customer_id = Customer8)
+
+Shopping_cart9 = Shopping_cart(cart_id = 9,
+                 effective_date = '2020-3-6',
+                 total = 105000,
+                 customer_id = Customer9)
+
+Shopping_cart10 = Shopping_cart(cart_id = 10,
+                 effective_date = '2020-2-2',
+                 total = 270000,
+                 customer_id = Customer10)
+
+
+Shopping_cart1.save()
+Shopping_cart2.save()
+Shopping_cart3.save()
+Shopping_cart4.save()
+Shopping_cart5.save()
+Shopping_cart6.save()
+Shopping_cart7.save()
+Shopping_cart8.save()
+Shopping_cart9.save()
+Shopping_cart10.save()
+
+from cart_product.models import Cart_product
+
+Cart_product1 = Cart_product(cart_product_id = 1,
+                amount = 1,
+                price_total = 20000,
+                product_id = Product1,
+                cart_id= Shopping_cart1)
+
+Cart_product2 = Cart_product(cart_product_id = 2,
+                amount = 1,
+                price_total = 7000,
+                product_id = Product19,
+                cart_id= Shopping_cart1)
+
+Cart_product3 = Cart_product(cart_product_id = 3,
+                amount = 1,
+                price_total = 50000,
+                product_id = Product3,
+                cart_id= Shopping_cart2)
+
+Cart_product4 = Cart_product(cart_product_id = 4,
+                amount = 1,
+                price_total = 15000,
+                product_id = Product4,
+                cart_id= Shopping_cart2)
+
+
+Cart_product5 = Cart_product(cart_product_id = 5,
+                amount = 1,
+                price_total = 40000,
+                product_id = Product5,
+                cart_id= Shopping_cart2)
+
+Cart_product6 = Cart_product(cart_product_id = 6,
+                amount = 1,
+                price_total = 25000,
+                product_id = Product6,
+                cart_id= Shopping_cart3)
+
+Cart_product7 = Cart_product(cart_product_id = 7,
+                amount = 1,
+                price_total = 35000,
+                product_id = Product7,
+                cart_id= Shopping_cart3)
+
+Cart_product8 = Cart_product(cart_product_id = 8,
+                amount = 1,
+                price_total = 110000,
+                product_id = Product12,
+                cart_id= Shopping_cart4)
+
+Cart_product9 = Cart_product(cart_product_id = 9,
+                amount = 1,
+                price_total = 80000,
+                product_id = Product13,
+                cart_id= Shopping_cart4)
+
+Cart_product10 = Cart_product(cart_product_id = 10,
+                amount = 2,
+                price_total = 40000,
+                product_id = Product1,
+                cart_id= Shopping_cart5)
+
+Cart_product11 = Cart_product(cart_product_id = 11,
+                amount = 1,
+                price_total = 35000,
+                product_id = Product9,
+                cart_id= Shopping_cart5)
+
+Cart_product12 = Cart_product(cart_product_id = 12,
+                amount = 2,
+                price_total = 120000,
+                product_id = Product2,
+                cart_id= Shopping_cart6)
+
+Cart_product13 = Cart_product(cart_product_id = 13,
+                amount = 3,
+                price_total = 60000,
+                product_id = Product1,
+                cart_id= Shopping_cart6)
+
+Cart_product14 = Cart_product(cart_product_id = 14,
+                amount = 5,
+                price_total = 75000,
+                product_id = Product4,
+                cart_id= Shopping_cart7)
+
+Cart_product15 = Cart_product(cart_product_id = 15,
+                amount = 2,
+                price_total = 100000,
+                product_id = Product3,
+                cart_id= Shopping_cart7)
+
+Cart_product16 = Cart_product(cart_product_id = 16,
+                amount = 1,
+                price_total = 25000,
+                product_id = Product6,
+                cart_id= Shopping_cart8)
+
+Cart_product17 = Cart_product(cart_product_id = 17,
+                amount = 1,
+                price_total = 35000,
+                product_id = Product7,
+                cart_id= Shopping_cart8)
+
+Cart_product18 = Cart_product(cart_product_id = 18,
+                amount = 1,
+                price_total = 150000,
+                product_id = Product11,
+                cart_id= Shopping_cart9)
+
+Cart_product19 = Cart_product(cart_product_id = 19,
+                amount = 1,
+                price_total = 90000,
+                product_id = Product16,
+                cart_id= Shopping_cart9)
+
+Cart_product20 = Cart_product(cart_product_id = 20,
+                amount = 1,
+                price_total = 80000,
+                product_id = Product13,
+                cart_id= Shopping_cart10)
+
+Cart_product21 = Cart_product(cart_product_id = 21,
+                amount = 1,
+                price_total = 7000,
+                product_id = Product19,
+                cart_id= Shopping_cart10)
+
+Cart_product22 = Cart_product(cart_product_id = 22,
+                amount = 3,
+                price_total = 120000,
+                product_id = Product18,
+                cart_id= Shopping_cart10)
+
+
+
+
+Cart_product1.save()
+Cart_product2.save()
+Cart_product3.save()
+Cart_product4.save()
+Cart_product5.save()
+Cart_product6.save()
+Cart_product7.save()
+Cart_product8.save()
+Cart_product9.save()
+Cart_product10.save()
+Cart_product11.save()
+Cart_product12.save()
+Cart_product13.save()
+Cart_product14.save()
+Cart_product15.save()
+Cart_product16.save()
+Cart_product17.save()
+Cart_product18.save()
+Cart_product19.save()
+Cart_product20.save()
+Cart_product21.save()
+Cart_product22.save()
+
+from units_per_size.models import Units_per_size
+
+units1 = Units_per_size(product_id = Product1,
+	 xs_units = 0,
+	 s_units = 0,
+	 m_units = 0,
+	 l_units = 0,
+	 xl_units = 0,
+	 na_units = 100)
+
+units2 = Units_per_size(product_id = Product2,
+	 xs_units = 0,
+	 s_units = 15,
+	 m_units = 45,
+	 l_units = 8,
+	 xl_units = 3,
+	 na_units = 0)
+
+units3 = Units_per_size(
+	 product_id = Product3,
+	 xs_units = 0,
+	 s_units = 0,
+	 m_units = 0,
+	 l_units = 0,
+	 xl_units = 0,
+	 na_units = 50)
+
+units4 = Units_per_size(
+	 product_id = Product4,
+	 xs_units = 0,
+	 s_units = 0,
+	 m_units = 0,
+	 l_units = 0,
+	 xl_units = 0,
+	 na_units = 200)
+
+units5 = Units_per_size(
+	 product_id = Product5,
+	 xs_units = 0,
+	 s_units = 0,
+	 m_units = 0,
+	 l_units = 0,
+	 xl_units = 0,
+	 na_units = 25)
+
+units6 = Units_per_size(
+	product_id = Product6,
+	xs_units = 12,
+	s_units = 30,
+	m_units = 23,
+	l_units = 65,
+	xl_units = 28,
+	na_units = 0)
+
+units7 = Units_per_size(
+	product_id = Product7,
+	xs_units = 12,
+	s_units = 45,
+	m_units = 23,
+	l_units = 76,
+	xl_units = 12,
+	na_units = 0)
+
+units8 = Units_per_size(
+	product_id = Product8,
+	xs_units = 10,
+	s_units = 22,
+	m_units = 30,
+	l_units = 11,
+	xl_units = 3,
+	na_units = 0)
+
+units9 = Units_per_size(
+	product_id = Product9,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 100)
+
+units10 = Units_per_size(
+	product_id = Product10,
+	xs_units = 0,
+	s_units = 3,
+	m_units = 15,
+	l_units = 30,
+	xl_units = 11,
+	na_units = 0)
+
+units11 = Units_per_size(
+	product_id = Product11,
+	xs_units = 1,
+	s_units = 21,
+	m_units = 17,
+	l_units = 20,
+	xl_units = 8,
+	na_units = 0)
+
+units12 = Units_per_size(
+	product_id = Product12,
+	xs_units = 10,
+	s_units = 20,
+	m_units = 20,
+	l_units = 45,
+	xl_units = 6,
+	na_units = 0)
+
+units13 = Units_per_size(
+	product_id = Product13,
+	xs_units = 7,
+	s_units = 12,
+	m_units = 4,
+	l_units = 21,
+	xl_units = 2,
+	na_units = 0)
+
+units14 = Units_per_size(
+	product_id = Product14,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 97)
+
+units15 = Units_per_size(
+	product_id = Product15,
+	xs_units = 2,
+	s_units = 34,
+	m_units = 20,
+	l_units = 31,
+	xl_units = 9,
+	na_units = 0)
+
+units16 = Units_per_size(
+	product_id = Product16,
+	xs_units = 7,
+	s_units = 4,
+	m_units = 29,
+	l_units = 21,
+	xl_units = 13,
+	na_units = 0)
+
+units17 = Units_per_size(
+	product_id = Product17,
+	xs_units = 8,
+	s_units = 13,
+	m_units = 20,
+	l_units = 11,
+	xl_units = 1,
+	na_units = 0)
+
+units18 = Units_per_size(
+	product_id = Product18,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 80)
+
+units19 = Units_per_size(
+	product_id = Product19,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 100)
+
+units20 = Units_per_size(
+	product_id = Product20,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 75)
+
+units1.save()
+units2.save()
+units3.save()
+units4.save()
+units5.save()
+units6.save()
+units7.save()
+units8.save()
+units9.save()
+units10.save()
+units11.save()
+units12.save()
+units13.save()
+units14.save()
+units15.save()
+units16.save()
+units17.save()
+units18.save()
+units19.save()
+units20.save()
+
+
+from bill.models import Bill
+
+bill1 = Bill(
+	bill_number = 1,
+	bill_date = '2019-9-11',
+	customer_id = Customer1,
+	cart_id = Shopping_cart1,
+	total = 27000)
+
+bill2 = Bill(
+	bill_number = 2,
+	bill_date = '2020-8-27',
+	customer_id = Customer2,
+	cart_id = Shopping_cart2,
+	total = 105000)
+
+bill3 = Bill(
+	bill_number = 3,
+	bill_date = '2019-12-18',
+	customer_id = Customer3,
+	cart_id = Shopping_cart3,
+	total = 60000)
+
+bill4 = Bill(
+	bill_number = 4,
+	bill_date = '2020-10-16',
+	customer_id = Customer4,
+	cart_id = Shopping_cart4,
+	total = 190000)
+
+bill5 = Bill(
+	bill_number = 5,
+	bill_date = '2019-9-16',
+	customer_id = Customer5,
+	cart_id = Shopping_cart5,
+	total = 75000)
+
+bill6 = Bill(
+	bill_number = 6,
+	bill_date = '2020-6-5',
+	customer_id = Customer6,
+	cart_id = Shopping_cart6,
+	total = 180000)
+
+bill7 = Bill(
+	bill_number = 7,
+	bill_date = '2020-8-15',
+	customer_id = Customer7,
+	cart_id = Shopping_cart7,
+	total = 175000)
+
+bill8 = Bill(
+	bill_number = 8,
+	bill_date = '2020-1-22',
+	customer_id = Customer8,
+	cart_id = Shopping_cart8,
+	total = 60000)
+
+bill9 = Bill(
+	bill_number = 9,
+	bill_date = '2020-3-6',
+	customer_id = Customer9,
+	cart_id = Shopping_cart9,
+	total = 105000)
+
+bill10 = Bill(
+	bill_number = 10,
+	bill_date = '2020-2-2',
+	customer_id = Customer10,
+	cart_id = Shopping_cart10,
+	total = 270000)
+
+bill1.save()
+bill2.save()
+bill3.save()
+bill4.save()
+bill5.save()
+bill6.save()
+bill7.save()
+bill8.save()
+bill9.save()
+bill10.save()
+
+
+from delivery.models import Delivery
+
+delivery1 = Delivery(
+	delivery_id = 1,
+	bill_number = bill1,
+	customer_id = Customer1,
+	employer_id = Tradesman2,
+	delivery_date = '2019-9-14')
+
+delivery2 = Delivery(
+	delivery_id = 2,
+	bill_number = bill2,
+	customer_id = Customer2,
+	employer_id = Tradesman1,
+	delivery_date = '2020-9-1')
+
+delivery3 = Delivery(
+	delivery_id = 3,
+	bill_number = bill3,
+	customer_id = Customer3,
+	employer_id = Tradesman5,
+	delivery_date = '2019-12-23')
+
+delivery4 = Delivery(
+	delivery_id = 4,
+	bill_number = bill4,
+	customer_id = Customer4,
+	employer_id = Tradesman3,
+	delivery_date = '2020-10-19')
+
+delivery5 = Delivery(
+	delivery_id = 5,
+	bill_number = bill5,
+	customer_id = Customer5,
+	employer_id = Tradesman4,
+	delivery_date = '2019-10-22')
+
+delivery6 = Delivery(
+	delivery_id = 6,
+	bill_number = bill6,
+	customer_id = Customer6,
+	employer_id = Tradesman3,
+	delivery_date = '2020-6-10')
+
+delivery7 = Delivery(
+	delivery_id = 7,
+	bill_number = bill7,
+	customer_id = Customer7,
+	employer_id = Tradesman1,
+	delivery_date = '2020-8-17')
+
+delivery8 = Delivery(
+	delivery_id = 8,
+	bill_number = bill8,
+	customer_id = Customer8,
+	employer_id = Tradesman2,
+	delivery_date = '2020-1-23')
+
+delivery9 = Delivery(
+	delivery_id = 9,
+	bill_number = bill9,
+	customer_id = Customer9,
+	employer_id = Tradesman2,
+	delivery_date = '2020-3-7')
+
+delivery10 = Delivery(
+	delivery_id = 10,
+	bill_number = bill10,
+	customer_id = Customer10,
+	employer_id = Tradesman4,
+	delivery_date = '2020-2-3')
+
+delivery1.save()
+delivery2.save()
+delivery3.save()
+delivery4.save()
+delivery5.save()
+delivery6.save()
+delivery7.save()
+delivery8.save()
+delivery9.save()
+delivery10.save()
