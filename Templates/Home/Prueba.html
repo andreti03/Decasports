@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>DECASPORTS</title>
+    <title>{% block title %} DECASPORTS {% endblock %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
     {% load static %}
@@ -50,30 +50,15 @@
                 </ul>
             </div>
             <div class="col-sm-4 col-md-4 py-4 border-right">
-                <form id="login-box" class="form" action="" method="POST">
-                    <div class="form-group text-white">
-                    <label for="exampleInputUser">Username</label>
-                    <input type="email" class="form-control" id="InputUser" aria-describedby="UserHelp">
-                    <small id="UserHelp" class="form-text text-muted">We'll never share your info with anyone else.</small>
-                    </div>
-                    <div class="form-group text-white">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="InputPassword1">
-                    </div>
-                    <div class="form-group text-white form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                    </div>
-                    <a class="btn btn-primary" href="#" role="button">Sing in</a>
-                    <a class="btn btn-primary" href="Usuario.html" role="button">Sing up</a>
-                </form>
+                <a class="btn btn-primary btn-lg btn-block" href="/login/" role="button">Sing in</a>
+                <a class="btn btn-primary btn-lg btn-block" href="/cr_acc/" role="button">Sing up</a>
             </div>
         </div>
     </div>
     </div>
     <div class="navbar navbar-dark bg-dark shadow p-3">
     <div class="container d-flex justify-content-between">
-        <a href="" class="navbar-brand d-flex align-items-center">
+        <a href="/" class="navbar-brand d-flex align-items-center">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
         </svg>
@@ -126,9 +111,11 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="album py-5 bg-dark" >
+    <div class="py-5 bg-dark" >
         <div class="container">
-
+            {% block contenido %} 
+            <h1 class="text-white">Bienvenidos!</h1>
+            {% endblock %}
       
         </div>
     </div>
