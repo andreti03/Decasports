@@ -94,8 +94,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'Proyecto',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'DECASPORTS2390',
+        'HOST': 'database-deca.cexucqoeoocq.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
