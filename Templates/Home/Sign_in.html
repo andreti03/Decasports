@@ -3,9 +3,9 @@
 {% block contenido %} 
 <div class="container d-flex justify-content-center align-items-center">
     <div class="card bg-dark " style="width: 20rem;">
-    {% csrf_token %}
     <div class="card-header ">
-    <form id="login-box" class="form " action="{% url 'Home' %}" method="post">
+    <form id="login-box" class="form " action="" method="post">
+        {% csrf_token %}
         <div class="form-group text-white ">
             <label for="Username">Username</label>
             <input type="text" class="form-control" id="InputUser" aria-describedby="UserHelp">

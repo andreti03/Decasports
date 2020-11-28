@@ -5,7 +5,7 @@ from django import forms
 
 
 class CreateUserForm(UserCreationForm):
-    password = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control'}))
+    password1 = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control'}))
     password2 = forms.CharField(widget= forms.PasswordInput(attrs={'class': 'form-control'}))
     
     class Meta:
