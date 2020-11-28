@@ -470,6 +470,13 @@ Product20 = Product(product_id = 20,
            product_sport_id = Sport7,
            admin_id = Admi1)
 
+Product21 = Product(product_id = 21,
+            product_name = 'Medias',
+            price = 10000,
+            product_sport_id = Sport7,
+            admin_id = Admi1)
+
+
 Product1.save()
 Product2.save()
 Product3.save()
@@ -490,6 +497,7 @@ Product17.save()
 Product18.save()
 Product19.save()
 Product20.save()
+Product21.save()
 
 from shopping_cart.models import Shopping_cart
 
@@ -897,6 +905,16 @@ units20 = Units_per_size(
 	xl_units = 0,
 	na_units = 75)
 
+units21 = Units_per_size(
+    product_id = Product21,
+    xs_units = 23,
+    s_units = 12,
+    m_units = 30,
+    l_units = 56,
+    xl_units = 6,
+    na_units = 0
+)
+
 units1.save()
 units2.save()
 units3.save()
@@ -917,6 +935,7 @@ units17.save()
 units18.save()
 units19.save()
 units20.save()
+units21.save()
 
 
 from bill.models import Bill
