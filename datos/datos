@@ -190,58 +190,70 @@ Address8.save()
 Address9.save()
 Address10.save()
 
-from customer_email.models import Email
+from django.contrib.auth.models import User
 
-Email1 = Email(email_id = 1,
-         email = 'elbichocr7@gmail.com',
-         e_password = 'SIU12345')
+user1 = User.objects.create_user('elbichocr7',
+         'elbichocr7@gmail.com',
+         'SIU12345')
 
-Email2 = Email(email_id = 2,
-         email = 'pedritor26@hotmail.com',
-         e_password = '26041998')
+user2 = User.objects.create_user('pedritor26',
+         'pedritor26@hotmail.com',
+         '26041998')
 
-Email3 = Email(email_id = 3,
-         email = 'ppalacios8@gmail.com',
-         e_password = 'PP2005')
+user3 = User.objects.create_user('ppalacios8',
+         'ppalacios8@gmail.com',
+         'PP2005')
 
-Email4 = Email(email_id = 4,
-         email = 'apontesimon@gmail.com',
-         e_password = '3501723872')
+user4 = User.objects.create_user('apontesimon',
+         'apontesimon@gmail.com',
+         '3501723872')
 
-Email5 = Email(email_id = 5,
-         email = 'vladotorres@hotmail.com',
-         e_password = '12345678')
+user5 = User.objects.create_user('vladotorres',
+         'vladotorres@hotmail.com',
+         '12345678')
 
-Email6 = Email(email_id = 6,
-         email = 'ridu1982@gmail.com',
-         e_password = 'Duque1982')
+user6 = User.objects.create_user('ridu1982',
+         'ridu1982@gmail.com',
+         'Duque1982')
 
-Email7 = Email(email_id = 7,
-         email = 'jorlopez384@gmail.com',
-         e_password = 'Zelop384')
+user7 = User.objects.create_user('jorlopez384',
+         'jorlopez384@gmail.com',
+         'Zelop384')
 
-Email8 = Email(email_id = 8,
-         email = 'jmarquez123@yahoo.com',
-         e_password = 'MARQUEZ0310')
+user8 = User.objects.create_user('jmarquez123',
+         'jmarquez123@yahoo.com',
+         'MARQUEZ0310')
 
-Email9 = Email(email_id = 9,
-         email = 'martinc@gmail.com',
-         e_password = '1974MC_1')
+user9 = User.objects.create_user('martinc',
+         'martinc@gmail.com',
+         '1974MC_1')
 
-Email10 = Email(email_id = 10,
-         email = 'crodriguez27@gmail.com',
-         e_password = 'Cr270298')
+user10 = User.objects.create_user('crodriguez27',
+         'crodriguez27@gmail.com',
+         'Cr270298')
 
-Email1.save()
-Email2.save()
-Email3.save()
-Email4.save()
-Email5.save()
-Email6.save()
-Email7.save()
-Email8.save()
-Email9.save()
-Email10.save()
+user1.is_staff=True
+user2.is_staff=True
+user3.is_staff=True
+user4.is_staff=True
+user5.is_staff=True
+user6.is_staff=True
+user7.is_staff=True
+user8.is_staff=True
+user9.is_staff=True
+user10.is_staff=True
+
+user1.save()
+user2.save()
+user3.save()
+user4.save()
+user5.save()
+user6.save()
+user7.save()
+user8.save()
+user9.save()
+user10.save()
+
 
 from customers.models import Customer
 
@@ -251,7 +263,7 @@ Customer1 = Customer(customer_id = 1,
             birthdate = '1985-2-5',
             phone_number = 3010895578,      
             address_id = Address1,  
-            email_id = Email1)
+            auth_user_id = user1)
 
 Customer2 = Customer(customer_id = 2,
             first_name = 'Pedro',
@@ -259,7 +271,7 @@ Customer2 = Customer(customer_id = 2,
             birthdate = '1998-4-26',
             phone_number = 3027423911,      
             address_id = Address2,  
-            email_id = Email2)
+            auth_user_id = user2)
 
 Customer3 = Customer(customer_id = 3,
             first_name = 'Simón',
@@ -267,7 +279,7 @@ Customer3 = Customer(customer_id = 3,
             birthdate = '1986-3-13',
             phone_number = 3184379454,      
             address_id = Address3,  
-            email_id = Email3)
+            auth_user_id = user3)
 
 Customer4 = Customer(customer_id = 4,
             first_name = 'Vladimir',
@@ -275,7 +287,7 @@ Customer4 = Customer(customer_id = 4,
             birthdate = '1969-4-9',
             phone_number = 3501723872,      
             address_id = Address4,  
-            email_id = Email4)
+            auth_user_id = user4)
 
 Customer5 = Customer(customer_id = 5,
             first_name = 'Ricardo',
@@ -283,7 +295,7 @@ Customer5 = Customer(customer_id = 5,
             birthdate = '1985-2-5',
             phone_number = 3124385630,      
             address_id = Address5,  
-            email_id = Email5)
+            auth_user_id = user5)
 
 Customer6 = Customer(customer_id = 6,
             first_name = 'Jorge',
@@ -291,7 +303,7 @@ Customer6 = Customer(customer_id = 6,
             birthdate = '1995-2-5',
             phone_number = 3108423648,      
             address_id = Address6,  
-            email_id = Email6)
+            auth_user_id = user6)
 
 Customer7 = Customer(customer_id = 7,
             first_name = 'Juan',
@@ -299,7 +311,7 @@ Customer7 = Customer(customer_id = 7,
             birthdate = '1989-5-16',
             phone_number = 3170067352,      
             address_id = Address7,  
-            email_id = Email7)
+            auth_user_id = user7)
 
 Customer8 = Customer(customer_id = 8,
             first_name = 'Pablo',
@@ -307,7 +319,7 @@ Customer8 = Customer(customer_id = 8,
             birthdate = '2005-11-13',
             phone_number = 3067367483,      
             address_id = Address8,  
-            email_id = Email8)
+            auth_user_id = user8)
 
 Customer9 = Customer(customer_id = 9,
             first_name = 'Martin',
@@ -315,7 +327,7 @@ Customer9 = Customer(customer_id = 9,
             birthdate = '1974-8-11',
             phone_number = 3116289262,      
             address_id = Address9,  
-            email_id = Email9)
+            auth_user_id = user9)
 
 Customer10 = Customer(customer_id = 10,
             first_name = 'Carlos',
@@ -323,7 +335,7 @@ Customer10 = Customer(customer_id = 10,
             birthdate = '1998-2-27',
             phone_number = 3001658679,      
             address_id = Address10,  
-            email_id = Email10)
+            auth_user_id = user10)
 
 Customer1.save()
 Customer2.save()

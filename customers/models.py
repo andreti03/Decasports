@@ -1,6 +1,6 @@
 from django.db import models
 from address.models import Address
-from customer_email.models import Email 
+from django.contrib.auth.models import User 
 
 
 class Customer(models.Model):
@@ -10,5 +10,5 @@ class Customer(models.Model):
     birthdate = models.DateField()
     phone_number = models.CharField(max_length=10)
     address_id = models.ForeignKey(Address, on_delete=models.CASCADE)
-    email_id = models.ForeignKey(Email, on_delete=models.CASCADE,default="", editable=False)
+    auth_user_id = models.ForeignKey(User, on_delete=models.CASCADE,default="", editable=False)
     
