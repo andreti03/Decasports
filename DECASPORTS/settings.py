@@ -149,7 +149,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     '/var/www/static/',
+    os.path.join(BASE_DIR, 'static'),
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/IMG')
+
+MEDIA_URL = '/IMG/'
 
 LOGIN_REDIRECT_URL = 'Home'
 

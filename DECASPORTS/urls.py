@@ -17,6 +17,9 @@ from django.contrib import admin
 from . import views
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', views.Home, name ='Home'),
@@ -31,3 +34,5 @@ urlpatterns = [
     path('shopping_cart/', include(('shopping_cart.urls','shopping_cart'))),
     path('products/', include(('products.urls','products')))
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
