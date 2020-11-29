@@ -11,4 +11,4 @@ class Product(models.Model):
     admin_id = models.ForeignKey(Admi, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product_id, self.price
+        return self.product_name, self.price
