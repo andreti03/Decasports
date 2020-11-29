@@ -1,14 +1,32 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from .forms import CreateUserForm
 from django.contrib import messages
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.shortcuts import redirect, render
+from .forms import CreateUserForm
+
 
 def Home(request):
     return render(request, 'Home/Principal.html')
 
 def Sign_in(request):
-    return render(request, 'Home/Sign_in.html')
+    if request.method=='POST':
+        form = AuthenticationForm(request, data = request.POST) 
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            usuario = authenticate(username=username, password=password)
+            if usuario is not None:
+                login(request, usuario)
+                messages.success(request, F"Bienvenid@ de nuevo {username}!")
+                return redirect('Home') 
+            else:
+                messages.error(request, "Los datos ingresados son incorrectos")
+        else:
+            messages.error(request, "Los datos ingresados son incorrectos")
+
+    form = AuthenticationForm()
+    context = {'form': form}
+    return render(request, 'Home/Sign_in.html', context)
 
 def Sign_up(request):
     return render(request, 'Home/Sign_up.html')
