@@ -1,2 +1,67 @@
 {% extends 'Home/Prueba.html'%}
 
+{% block contenido %}
+<blockquote class="blockquote text-center">
+<p class="h1 text-white">TUS DATOS</p>
+</blockquote>
+
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card bg-dark" style="width: 60rem;">
+        <div class="card-body">
+            {% for x in customers %}
+                {% if x.customer_id == user.id %}
+                    <div class="card mb-3 align-items-center" style="width: 58rem;">
+                        <div class="card-header">
+                            <p class="h4"> Nombre: {{x.first_name}} {{x.last_name}} </p>
+                        </div>
+                    </div>
+                    <blockquote class="blockquote text-center">
+                        <p class="h3 text-white">Información de contacto</p>
+                    </blockquote>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card mb-3 align-items-center" style="width: 28rem;">
+                                <div class="card-header">
+                                    <p class="h4"> Número: {{x.phone_number}} </p>
+                                </div>
+                            </div>
+                        </div>
+                        {% for q in address %}
+                            {% if x.address_id == q %}
+                                {% for y in city %}
+                                    {% if q.city_id == y %}
+                                        <div class="col-sm-6">
+                                            <div class="card mb-3 align-items-center" style="width: 28rem;">
+                                                <div class="card-header">
+                                                    <p class="h4"> País: {{y.country}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="card mb-3 align-items-center" style="width: 28rem;">
+                                                <div class="card-header">
+                                                    <p class="h4"> Ciudad: {{y.city_name}} </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="col-sm-6">
+                                    <div class="card mb-3 align-items-center" style="width: 28rem;">
+                                        <div class="card-header">
+                                            <p class="h4"> Dirección: {{q.address}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <a href="/customer/actualizar_datos/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Actualizar información</a>
+    </div>
+</div>
+    
+{% endblock %}

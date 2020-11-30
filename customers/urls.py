@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import Home
+from .views import index, formulario
 
 urlpatterns = [
-    path('', Home, name = 'index')
+    path('', index, name = 'profile'),
+    #path('customers/encuesta.html', formulario)
 ]
