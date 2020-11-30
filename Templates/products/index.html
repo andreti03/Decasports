@@ -1,6 +1,9 @@
 {% extends 'Home/Prueba.html'%}
 
+{% load cart_tags %}
+
 {%block contenido%}
+    <!--Total {{ 9|multiply:5|money_format:"$"}}-->
     {% load static %}
 <div class="container">
     <h1 class="text-white">Productos</h1>
