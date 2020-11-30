@@ -17,7 +17,13 @@ from django.contrib import admin
 from . import views
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
+<<<<<<< HEAD
 from customers.views import formulario
+=======
+from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
+>>>>>>> 2e431453bd356e6ed82bf8a45333ed10e92e9340
 
 urlpatterns = [
     path('', views.Home, name ='Home'),
@@ -33,3 +39,5 @@ urlpatterns = [
     path('products/', include(('products.urls','products'))),
     path('customer/actualizar_datos/', formulario, name='encuesta')
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

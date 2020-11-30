@@ -9,4 +9,8 @@ class Units_per_size(models.Model):
     m_units = models.IntegerField()
     l_units = models.IntegerField()    
     xl_units = models.IntegerField()
-    na_units =models.IntegerField()
+    na_units = models.IntegerField()
+    total_units = models.IntegerField()
+
+    def __str__(self):
+        return str(self.product_id)
