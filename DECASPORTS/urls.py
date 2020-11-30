@@ -17,11 +17,15 @@ from django.contrib import admin
 from . import views
 from django.urls import path, include
 from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib import admin
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('', views.Home, name ='Home'),
-    path('login/', LoginView.as_view(template_name= 'Home/Sign_in.html'), name ='Sign_in'),
+    path('login/', views.Sign_in, name ='Sign_in'),
     path('cr_acc/', views.registerPage, name ='Sign_up'),
+    path('sign_out/', views.Sign_out, name ='Sign_out'),
     path('admin/', admin.site.urls),
     path('address/', include(('address.urls','address'))),
     path('bill/', include(('bill.urls','bill'))),
@@ -30,3 +34,5 @@ urlpatterns = [
     path('shopping_cart/', include(('shopping_cart.urls','shopping_cart'))),
     path('products/', include(('products.urls','products')))
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

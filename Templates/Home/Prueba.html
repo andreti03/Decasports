@@ -32,7 +32,7 @@
     <link href="{% static 'style.css'%}" rel="stylesheet">
 
 </head>
-<body>
+<body >
     <header>
     <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -44,15 +44,25 @@
             <div class="col-sm-4 col-md-4 py-4 border-right">
                 <h4 class="text-white">Contact</h4>
                 <ul class="list-unstyled">
-                <li><a href="#" class="text-white">Follow us on Twitter</a></li>
-                <li><a href="#" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Follow us on Instagram</a></li>
+                    <li><a href="#" class="text-white">Follow us on Twitter</a></li>
+                    <li><a href="#" class="text-white">Like on Facebook</a></li>
+                    <li><a href="#" class="text-white">Follow us on Instagram</a></li>
                 </ul>
             </div>
-            <div class="col-sm-4 col-md-4 py-4 border-right">
-                <a class="btn btn-primary btn-lg btn-block" href="/login/" role="button">Sing in</a>
-                <a class="btn btn-primary btn-lg btn-block" href="/cr_acc/" role="button">Sing up</a>
-            </div>
+            {% if user.is_authenticated %}
+                <div class="col-sm-4 col-md-4 py-4 text-center border-right">
+                    <h4 class="text-white">Hola {{user.username}} </h4>
+                    <small class="form-text text-muted py-2">¡Es un gusto tenerte de vuelta!</small>
+                    <a class="btn btn-primary btn-lg btn-block" href="/shopping_cart/" role="button">Tu carrito</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="/customers/" role="button">Tu perfil</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="{% url 'Sign_out' %}" role="button">Cerrar Sesión</a>
+                </div>                
+            {% else%}
+                <div class="col-sm-4 col-md-4 py-4 border-right">
+                    <a class="btn btn-primary btn-lg btn-block" href="/login/" role="button">Ingresar</a>
+                    <a class="btn btn-primary btn-lg btn-block" href="/cr_acc/" role="button">Registrarse</a>
+                </div>
+            {% endif %}
         </div>
     </div>
     </div>
@@ -70,7 +80,37 @@
     </div>
     </div>
     </header>
-
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/products/">Tienda</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                <a class="nav-link" href="/customers/">Moda<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Deportes
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">1</a>
+                    <a class="dropdown-item" href="#">2</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Destacado</a>
+                </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+            </div>
+        </nav>
+    </div>
     <main role="main">
 
     <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-ride="carousel">
@@ -111,12 +151,28 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
     <div class="py-5 bg-dark" >
+        {% block contenido %} 
         <div class="container">
-            {% block contenido %} 
-            <h1 class="text-white">Bienvenidos!</h1>
-            {% endblock %}
-      
+           <h1 class="text-white">Bienvenidos!</h1> 
+        </div>
+        {% endblock %}
+        <div class="container">
+            {% if messages %}
+            <div class="row mt-3 mb-3">
+                    <div class="col-12">
+                        {% for message in messages%}
+                            <div class="alert alert-{{message.tags}} alert-dismissible fade show">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
+    
         </div>
     </div>
 
@@ -132,5 +188,6 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -1,1 +1,41 @@
 {% extends 'Home/Prueba.html'%}
+
+{%block contenido%}
+    {% load static %}
+<div class="container">
+    <h1 class="text-white">Productos</h1>
+    <div class="album py-5 bg-dark" >
+        <div class="container">
+            <div class="row">         
+            {% for units in ups %}
+            {% for Product in products %}
+            {% if units.product_id == Product %}
+            {% if units.total_units > 0%}
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow p-3">
+                        <img src="{{ Product.image.url }}" class="card-img-top" width="300" height="300"alt="IMAGEN">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">{{Product.product_name}}</li>
+                            <li class="list-group-item">$ {{Product.price}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary">Buy Now</button>
+                                    <button type="button" class="btn btn-primary">Add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
