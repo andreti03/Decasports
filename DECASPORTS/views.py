@@ -3,10 +3,13 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import redirect, render
 from .forms import CreateUserForm
+from categories.models import Sport
 
 
 def Home(request):
-    return render(request, 'Home/Principal.html')
+    sports = Sport.objects.all()
+    context={'sport': sports}
+    return render(request, 'Home/Principal.html', context)
 
 def Sign_in(request):
     if request.method=='POST':
