@@ -1,1 +1,50 @@
 {% extends 'Home/Prueba.html'%}
+
+
+
+{% block contenido %}
+
+<table border="2" bordercolor="yellow" class="table table-bordered">
+    <thead>
+        <tr>
+            <th width="800" bgcolor="white" colspan="3" class="text-center">
+                Carrito de compras
+            </th>
+        </tr>
+        <tr>
+            <th bgcolor="white">Producto</th>
+            <th bgcolor="white">Cantidad</th>
+            <th bgcolor="white">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if request.session.cart.items %}
+            {% for key, value in request.session.cart.items %}
+            <tr class="text-center">
+                <td>{{ value.name }}</td>
+                <td>{{ value.quantity}}</td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td bgcolor="white" colspan="3">
+                    <div class="alert alert-danger text-center">
+                        No tienes productos en el carrito
+                    </div>
+                </td>
+            </tr>
+        {% endif %}
+    </tbody>
+    <tfoot>
+        {% if request.session.cart.items %}
+            <tr>
+                <td colspan="3">
+                    <a href="#" class="btn btn-success">Crear pedido</a>
+                </td>
+            </tr>
+        {% endif %}
+    </tfoot>
+</table>
+
+
+{% endblock %}
