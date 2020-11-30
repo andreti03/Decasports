@@ -5,7 +5,7 @@
 <div class="container d-flex justify-content-center align-items-center">
     <div class="card bg-dark " style="width: 60rem;">
         <blockquote class="blockquote text-center">
-            <p class="h1 text-white">TUS DATOS</p>{{user.id}}
+            <p class="h2 text-white">TUS DATOS</p>
             </blockquote>
         <div class="card-header ">  
             <form method="POST">{% csrf_token %}
@@ -30,11 +30,8 @@
                     {{form.birthdate}}
                     </div>
                 </div>
-                <p class="text-white"><small> la fecha de nacimiento de acuerdo a nuestra Política de Privacidad. ¡Te haremos un regalo por tu cumpleaños!</p></small>
-                <br>
-                <blockquote class="blockquote text-center">
-                    <p class="h2 text-white"> Información de contacto </p>
-                </blockquote>
+                    <small class="text-white text-muted"> La fecha de nacimiento de acuerdo a nuestra Política de Privacidad. ¡Te haremos un regalo por tu cumpleaños!</small>
+                    <p class="h2 p-4 text-white text-center"> Información de contacto </p>
                 <div class="row">
                     <div class="col">
                         <label for="imputfirst_name">
@@ -49,30 +46,33 @@
                         {{form2.address}}
                     </div>
                 </div>
-
-                <p class="h3 text-white col-sm-4">Sexo</p>
-                <div class="form-check form-check-inline">
-                    <div style="color:aliceblue">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Hombre</label>
+                <div class="row py-4">
+                    <p class="h4 text-white col-sm-4">Sexo</p>
+                </div>
+                <div class="row col-sm-4">
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Hombre</label>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Mujer</label>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                            <label class="form-check-label" for="inlineRadio3">Otros</label>
+                        </div>
                     </div>
                 </div>
-                <div class="form-check form-check-inline">
-                    <div style="color:aliceblue">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Mujer</label>
-                    </div>
-                </div>
-                <div class="form-check form-check-inline">
-                    <div style="color:aliceblue">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                        <label class="form-check-label" for="inlineRadio3">Otros</label>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <button class="btn btn-primary" type="submit">Actualizar información</button>
             </form>
+        </div>
+        <div class="card-body d-flex justify-content-center align-items-center">
+            <button class="btn btn-lg btn-primary" type="submit">Actualizar información</button>
         </div>
     </div>
 </div>  
