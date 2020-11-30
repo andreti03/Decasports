@@ -20,6 +20,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from categories.views import Home, Futbol, Basketball, Ping, Natacion, Boxeo, Taekwondo, Atletismo, Ciclismo
 
 urlpatterns = [
     path('', views.Home, name ='Home'),
@@ -32,7 +33,15 @@ urlpatterns = [
     path('categories/', include(('categories.urls','categories'))),
     path('customers/', include(('customers.urls','customers'))),
     path('shopping_cart/', include(('shopping_cart.urls','shopping_cart'))),
-    path('products/', include(('products.urls','products')))
+    path('products/', include(('products.urls','products'))),
+    path('products/Futbol/', Futbol, name = 'Futbol'),
+    path('products/Basketball/', Basketball, name = 'Basketball'),
+    path('products/Ping-Pong/', Ping, name = 'Ping'),
+    path('products/Natación/', Natacion, name = 'Natacion'),
+    path('products/Boxeo/', Boxeo, name = 'Boxeo'),
+    path('products/Taekwondo/', Taekwondo, name = 'Taekwondo'),
+    path('products/Atletismo/', Atletismo, name = 'Atletismo'),
+    path('products/Ciclismo/', Ciclismo, name = 'Ciclismo')
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

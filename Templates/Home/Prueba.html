@@ -97,8 +97,9 @@
                     Deportes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">1</a>
-                    <a class="dropdown-item" href="#">2</a>
+                    {% for x in sport %}
+                    <a class="dropdown-item" href="/products/{{x}}/"> {{x}} </a>
+                    {% endfor %} 
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Destacado</a>
                 </div>
@@ -153,7 +154,7 @@
     </div>
 
     <div class="py-5 bg-dark" >
-        {% block contenido %} 
+        {% block contenido %}
         <div class="container">
            <h1 class="text-white">Bienvenidos!</h1> 
         </div>

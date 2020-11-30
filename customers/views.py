@@ -1,5 +1,9 @@
 from django.shortcuts import render
-
+from categories.models import Sport
 
 def Home(request):
-    return render(request, 'customers/index.html')
+    sports = Sport.objects.all()
+    context={
+        'Sport': sports
+    }
+    return render(request, 'customers/index.html', context)
