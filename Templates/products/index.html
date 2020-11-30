@@ -6,8 +6,11 @@
     <h1 class="text-white">Productos</h1>
     <div class="album py-5 bg-dark" >
         <div class="container">
-            <div class="row">             
+            <div class="row">         
+            {% for units in ups %}
             {% for Product in products %}
+            {% if units.product_id == Product %}
+            {% if units.total_units > 0%}
                 <div class="col-md-4">
                     <div class="card mb-4 shadow p-3">
                         <img src="{{ Product.image.url }}" class="card-img-top" width="300" height="300"alt="IMAGEN">
@@ -25,6 +28,9 @@
                         </div>
                     </div>
                 </div>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
             {% endfor %}
             </div>
         </div>
