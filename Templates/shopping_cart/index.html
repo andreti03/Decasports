@@ -1,7 +1,5 @@
 {% extends 'Home/Prueba.html'%}
 
-
-
 {% block contenido %}
 <div class="container">
     <div class="bg-white border border-primary">
@@ -9,27 +7,36 @@
         <table class="table table-hover">
             <thead>
               <tr>
-                <th class="text-center" scope="col">#</th>
                 <th class="text-center" scope="col">Producto</th>
                 <th class="text-center" scope="col">Cantidad</th>
                 <th class="text-center" scope="col"></th>
                 <th class="text-center" scope="col">Total</th>
               </tr>
             </thead>
+            {% for cp in cart_pro %}
+            {% if cp.cart_id_id == cart.cart_id %}
+            {% for pr in products%}
+            {% if pr.product_id == cp.product_id_id%}
             <tbody>
               <tr>
-                <th class="p-5 text-center" scope="row">1</th>
-                <td class="p-5 text-center">Medias</td>
-                <td class="h5 p-5 text-center">#</td>
+                <td class="p-5 text-center">{{ pr.product_name }}</td>
+                <td class="h5 p-5 ">
+                  <input class="form-control col-md-2 mx-auto d-block" type="search" placeholder="{{ cp.amount }}" aria-label="{{ cp.amount }}">
+                </td>
                 <td >
-                    <div class="btn-group-vertical " role="group" aria-label="...">
+                    <div class="btn-group-vertical p-2" role="group" aria-label="...">
                         <button type="button" class="btn btn-primary">+</button>
                         <button type="button" class="btn btn-primary">-</button>
                     </div>
                 </td>
-                <td class="p-5 text-center">$$$$$$$$$$</td>
+                <td class="p-5 text-center">${{cp.price_total}}</td>
               </tr>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
           </table>
+          <div class="h5 p-5 text-center"> TOTAL = ${{cart.total}}</div>
     </div>
 </div>
 

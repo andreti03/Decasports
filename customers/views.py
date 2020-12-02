@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Customer
 from address.models import Address
 from city.models import City
+from categories.models import Sport
 from .forms import Update_customer, Update_address
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
@@ -10,7 +11,13 @@ def index(request):
     customers = Customer.objects.all()
     address = Address.objects.all()
     city = City.objects.all()
-    context = {'customers':customers, 'address':address, 'city':city}
+    sports = Sport.objects.all()
+    context = {
+        'customers':customers, 
+        'address':address,
+        'sport': sports, 
+        'city':city
+    }
     return render(request, 'customers/index.html', context)
 
 def Home(request):
@@ -34,10 +41,9 @@ def formulario(request):
             up_customer.phone_number = phone_number
             up_address = Address.objects.get(address_id = up_customer.customer_id)
             up_address.address = address
-
             up_customer.save()
             up_address.save()
-            messages.success(request, F"{user.username} los datos han sido actualizados satisfatoriamente!")
+            messages.success(request, F"{user.username} tus datos han sido actualizados satisfatoriamente!")
             return redirect('Home')
         else:
              messages.error(request, "Los datos ingresados son incorrectos")

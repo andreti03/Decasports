@@ -3,12 +3,12 @@
 {% block contenido %}
 
 <div class="container d-flex justify-content-center align-items-center">
-    <div class="card bg-dark " style="width: 60rem;">
+    <form method="POST">{% csrf_token %}
+    <div class="card bg-dark " style="width: 65rem;">
         <blockquote class="blockquote text-center">
             <p class="h2 text-white">TUS DATOS</p>
             </blockquote>
         <div class="card-header ">  
-            <form method="POST">{% csrf_token %}
                 <div class="row">
                     <div class="col">
                         <label for="imputfirst_name">
@@ -69,12 +69,12 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <button class="btn btn-lg btn-primary" type="submit">Actualizar información</button>
+            </div>
         </div>
-        <div class="card-body d-flex justify-content-center align-items-center">
-            <button class="btn btn-lg btn-primary" type="submit">Actualizar información</button>
-        </div>
-    </div>
+    </form>
 </div>  
 {% endblock %}
 

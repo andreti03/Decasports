@@ -46,5 +46,4 @@ urlpatterns = [
     path('products/Ciclismo/', Ciclismo, name = 'Ciclismo'),
     path('customer/actualizar_datos/', formulario, name='encuesta')
 ]
-
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
