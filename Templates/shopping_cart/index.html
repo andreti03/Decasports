@@ -25,8 +25,8 @@
                 </td>
                 <td >
                     <div class="btn-group-vertical p-2" role="group" aria-label="...">
-                        <button type="button" class="btn btn-primary">+</button>
-                        <button type="button" class="btn btn-primary">-</button>
+                        <button type="button" data-product={{pr.product_id}} data-action="add" class="btn btn-primary add-btn update-cart">+</button>
+                        <button type="button" data-product={{pr.product_id}} data-action="remove" class="btn btn-primary add-btn update-cart">-</button>
                     </div>
                 </td>
                 <td class="p-5 text-center">${{cp.price_total}}</td>
