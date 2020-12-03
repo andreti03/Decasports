@@ -1,26 +1,26 @@
-var updateBtns = document.getElementsByClassName('update-cart')
+var updateBtns = document.getElementsByClassName('create-bill')
 
 for (var i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener('click',function(){
-        var productID = this.dataset.product
+        var cartID = this.dataset.cart
         var action = this.dataset.action
-        console.log('productID', productID,'action', action)
+        console.log('cartID', cartID,'action', action)
 
         console.log('USER:', user)
         if (user == 'AnonymousUser') {
             console.log('Not logged in')
         } else {
-            updateUserCart(productID, action)
+            createBill(cartID, action)
         }
         
     })
     
 }
 
-function updateUserCart(productID, action){
+function createBill(cartID, action){
     console.log('User is logged in, sending data...')
 
-    var url ='/update_item/'
+    var url ='/Create_bill/'
 
     fetch(url,{
         method: 'POST',
@@ -28,7 +28,7 @@ function updateUserCart(productID, action){
             'Content-Type':'application/json',
             'X-CSRFToken': csrftoken,
         },
-        body:JSON.stringify({'productID': productID,'action': action})
+        body:JSON.stringify({'cartID': cartID,'action': action})
     })
     .then((response)=>{
         return response.json()

@@ -88,6 +88,8 @@ def updateItem(request):
         if cart_pro.amount <= 0:
             cart_pro.delete()
 
+        return JsonResponse('Item was added', safe= False)
+
 
 def Home(request):
     return render(request, 'products/index.html')

@@ -4,8 +4,8 @@
 
 <div class="container bg-white rounded">
     <p class="h1 text-center">Factura</p>
-    <div class="card col-md-12 " >
-        <div class="card-header ">
+    <div class="card col-md-12 border-0 " >
+        <div class="card-header bg-white ">
             <div class="row no-gutters border border-dark">
                 <div class="col-md-6">
                     <p class="card-text"><small class="h6 text-muted">Recibo #{{m}}</small></p>
@@ -82,9 +82,12 @@
             </div>
         </div>
     </div>
-    <button type="button" data-product={{pr.product_id}} data-action="add" class="btn btn-primary btn-lg btn-block create-bill ">
-        Confirmar
-    </button>
+    <div class="p-3">
+        <button type="button" data-cart={{cart.cart_id}} data-action="create" class="btn btn-primary btn-lg btn-block add-btn create-bill ">
+            Confirmar
+        </button>
+        <a type="button" class="btn btn-primary btn-lg btn-block " href="/products/" role="button">Cancelar</a>
+    </div>
 </div>
 
 {% endblock %}
