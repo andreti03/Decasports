@@ -1,53 +1,142 @@
 {% extends 'Home/Prueba.html'%}
-
+<!-- CREA INFORMACION DE TRADESMAN -->
 {% block contenido %}
+    {% if user.is_staff and not user.is_superuser %}
 
-<div class="container d-flex justify-content-center align-items-center">
-    <div class="card bg-dark " style="width: 26rem;">
-        <div class="card-header ">
-        {% for x in customers %}
-            {% if x.customer_id == user.id %}
-            <p class="h2 p-4 text-white text-center">TUS DATOS</p>
-            <div class="col-sm-12 justify-content-center align-items-center">
-                <div class="col-sm-12 d-flex">
-                    <p class="col-sm-8 h5 text-white "> Nombre: </p>
-                    <p class="col-sm-10 text-white "> {{x.first_name}} {{x.last_name}} </p>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card bg-dark " style="width: 26rem;">
+            <div class="card-header ">
+            {% for x in tradesman %}
+                {% if x.auth_user_id_id == user.id %}
+                <p class="h2 p-4 text-white text-center">TUS DATOS</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Nombre: </p>
+                        <p class="col-sm-10 text-white "> {{x.first_name}} {{x.last_name}} </p>
+                    </div>
                 </div>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Pruesto: </p>
+                        <p class="col-sm-8 text-white "> Tradesman </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> ID empleado: </p>
+                        <p class="col-sm-8 text-white "> {{x.employer_id}} </p>
+                    </div>
+                </div>
+                <p class="h2 p-4 text-white text-center">Información de contacto</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Número: </p>
+                        <p class="col-sm-8 text-white "> {{x.phone_number}} </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Cédula: </p>
+                        <p class="col-sm-8 text-white "> {{x.dni}} </p>
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
             </div>
-            <p class="h2 p-4 text-white text-center">Información de contacto</p>
-            <div class="col-sm-12 justify-content-center align-items-center">
-                <div class="col-sm-12 d-flex">
-                    <p class="col-sm-8 h5 text-white "> Número: </p>
-                    <p class="col-sm-8 text-white "> {{x.phone_number}} </p>
-                </div>
-                    {% for q in address %}
-                        {% if x.address_id == q %}
-                            {% for y in city %}
-                                {% if q.city_id == y %}
-                                    <div class="col-sm-12 d-flex">
-                                        <p class="col-sm-8 h5 text-white "> País: </p>
-                                        <p class="col-sm-8 text-white "> {{y.country}} </p>
-                                    </div>
-                                    <div class="col-sm-12 d-flex">
-                                        <p class="col-sm-8 h5 text-white "> Ciudad: </p>
-                                        <p class="col-sm-8 text-white "> {{y.city_name}} </p>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                            <div class="col-sm-12 d-flex">
-                                <p class="col-sm-8 h5 text-white "> Dirección: </p>
-                                <p class="col-sm-8 text-white "> {{q.address}} </p>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endfor %}
-        </div>
-        <div class="card-body d-flex justify-content-center align-items-center">
-                <a href="/customer/actualizar_datos/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Actualizar información</a>
         </div>
     </div>
-</div>
-    
+    </div>
+
+<!-- CREA INFORMACION ADMIN -->
+    {% elif user.is_staff and user.is_superuser %}
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card bg-dark " style="width: 26rem;">
+            <div class="card-header ">
+                <p class="h2 p-4 text-white text-center">TUS DATOS</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Nombre: </p>
+                        <p class="col-sm-10 text-white "> {{user.first_name}} {{user.last_name}} </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Pruesto: </p>
+                        <p class="col-sm-8 text-white "> Administrador </p>
+                    </div>
+                <p class="h2 p-4 text-white text-center">Información de contacto</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Número: </p>
+                        <p class="col-sm-8 text-white "> Confidencial </p>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> País: </p>
+                        <p class="col-sm-8 text-white "> Narnia </p>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Ciudad: </p>
+                        <p class="col-sm-8 text-white "> Costa Oriental </p>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Dirección: </p>
+                        <p class="col-sm-8 text-white "> Cair Paravel </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+<!-- CREA INFORMACION CLIENTE REGULAR -->
+    {% else %}
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="card bg-dark " style="width: 26rem;">
+            <div class="card-header ">
+            {% for x in customers %}
+                {% if x.customer_id == user.id %}
+                <p class="h2 p-4 text-white text-center">TUS DATOS</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Nombre: </p>
+                        <p class="col-sm-10 text-white "> {{x.first_name}} {{x.last_name}} </p>
+                    </div>
+                </div>
+                <p class="h2 p-4 text-white text-center">Información de contacto</p>
+                <div class="col-sm-12 justify-content-center align-items-center">
+                    <div class="col-sm-12 d-flex">
+                        <p class="col-sm-8 h5 text-white "> Número: </p>
+                        <p class="col-sm-8 text-white "> {{x.phone_number}} </p>
+                    </div>
+                        {% for q in address %}
+                            {% if x.address_id == q %}
+                                {% for y in city %}
+                                    {% if q.city_id == y %}
+                                        <div class="col-sm-12 d-flex">
+                                            <p class="col-sm-8 h5 text-white "> País: </p>
+                                            <p class="col-sm-8 text-white "> {{y.country}} </p>
+                                        </div>
+                                        <div class="col-sm-12 d-flex">
+                                            <p class="col-sm-8 h5 text-white "> Ciudad: </p>
+                                            <p class="col-sm-8 text-white "> {{y.city_name}} </p>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="col-sm-12 d-flex">
+                                    <p class="col-sm-8 h5 text-white "> Dirección: </p>
+                                    <p class="col-sm-8 text-white "> {{q.address}} </p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+                    <a href="/customer/actualizar_datos/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Actualizar información</a>
+            </div>
+        </div>
+    </div>
+        
+    {% endif %}
 {% endblock %}

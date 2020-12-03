@@ -12,6 +12,7 @@ def Home(request):
     return render(request, 'Home/Principal.html', context)
 
 def Sign_in(request):
+    sports = Sport.objects.all()
     if request.method=='POST':
         form = AuthenticationForm(request, data = request.POST) 
         if form.is_valid():
@@ -28,7 +29,10 @@ def Sign_in(request):
             messages.error(request, "Los datos ingresados son incorrectos")
 
     form = AuthenticationForm()
-    context = {'form': form}
+    context = {
+        'form': form,
+        'sport': sports
+    }
     return render(request, 'Home/Sign_in.html', context)
 
 def Sign_up(request):
@@ -36,7 +40,7 @@ def Sign_up(request):
 
 def registerPage(request):
     form = CreateUserForm()
-    
+    sports = Sport.objects.all()
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
         if form.is_valid():
@@ -48,10 +52,16 @@ def registerPage(request):
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
-            context = {'form': form}
+            context = {
+                'form': form,
+                'sport': sports
+            }
             return render(request, 'Home/Sign_up.html', context)
     
-    context = {'form': form}
+    context = {
+        'form': form,
+        'sport': sports
+    }
     return render(request, 'Home/Sign_up.html', context)
 
 
