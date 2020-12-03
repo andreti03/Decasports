@@ -35,7 +35,16 @@
             {% endfor %}
             {% endif %}
             {% endfor %}
-          </table>
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <button type="button" class="btn btn-primary btn-lg btn-block ">
+                    Crear pedido
+                  </button>
+                </td>
+              </tr>
+            </tfoot>
+        </table>
           <div class="h5 p-5 text-center"> TOTAL = ${{cart.total}}</div>
     </div>
 </div>
