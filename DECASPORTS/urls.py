@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from . import views
 from django.urls import path, include
-from django.contrib.auth.views import LoginView, LogoutView
 from customers.views import formulario
 from products.views import updateItem
 from django.contrib import admin
@@ -34,6 +33,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('address/', include(('address.urls','address'))),
     path('bill/', include(('bill.urls','bill'))),
+    path('deliverys/', include(('delivery.urls','delivery'))),
     path('categories/', include(('categories.urls','categories'))),
     path('customers/', include(('customers.urls','customers'))),
     path('shopping_cart/', include(('shopping_cart.urls','shopping_cart'))),
