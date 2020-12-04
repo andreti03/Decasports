@@ -2,9 +2,11 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import redirect, render
-from .forms import CreateUserForm
+from .forms import CreateUserForm, Create_customer, Create_address, Create_city
 from categories.models import Sport
-
+from customers.models import Customer
+from address.models import Address
+from city.models import City
 
 def Home(request):
     sports = Sport.objects.all()
@@ -36,22 +38,55 @@ def Sign_up(request):
 
 def registerPage(request):
     form = CreateUserForm()
-    
+    form_customer = Create_customer(request.POST)
+    form_address = Create_address(request.POST)
+    form_city = Create_city(request.POST)
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        if form.is_valid():
-            usuario= form.save()
+        if form.is_valid() and form_customer.is_valid() and form_address.is_valid() and form_city.is_valid():
+            usuario = form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, F"Bienvenid@ {username}")
             login(request, usuario)
+            
+            user = request.user
+
+            first_name1 = form_customer.cleaned_data.get('first_name')
+            last_name1 = form_customer.cleaned_data.get('last_name')
+            birthdate1 = form_customer.cleaned_data.get('birthdate')
+            phone_number1 = form_customer.cleaned_data.get('phone_number')
+            address1 = form_address.cleaned_data.get('address')
+            city1 = form_city.cleaned_data.get('city_name')
+            country1 = form_city.cleaned_data.get('country')
+
+            city_created = City.objects.get(city_name = city1)
+
+            lista = Address.objects.all()
+            m = 0
+
+            for q in lista:
+                m += 1
+
+            address_created = Address(address_id = m+1, address = address1, city_id = city_created)
+            address_created.save()
+
+            customer_created = Customer(customer_id = user.id,
+                                        first_name = first_name1,
+                                        last_name = last_name1,
+                                        birthdate = birthdate1,
+                                        phone_number = phone_number1,
+                                        address_id = address_created,
+                                        auth_user_id = user)
+            customer_created.save()
+
             return redirect('Home') 
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
-            context = {'form': form}
+            context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city}
             return render(request, 'Home/Sign_up.html', context)
     
-    context = {'form': form}
+    context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city}
     return render(request, 'Home/Sign_up.html', context)
 
 
