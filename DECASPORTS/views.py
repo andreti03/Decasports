@@ -7,6 +7,8 @@ from categories.models import Sport
 from customers.models import Customer
 from address.models import Address
 from city.models import City
+from shopping_cart.models import Shopping_cart
+from datetime import date
 
 def Home(request):
     sports = Sport.objects.all()
@@ -84,24 +86,23 @@ def registerPage(request):
                                         auth_user_id = user)
             customer_created.save()
 
+            lista_shop = Shopping_cart.objects.all()
+            count = 0
+            for i in lista_shop:
+                count += 1
+            
+            day = date.today()
+            dt = day.strftime("%Y-%m-%d")
+            shopping_cart_crated = Shopping_cart(cart_id =count+1, effective_date = dt,  total = 0, customer_id = customer_created)
+            shopping_cart_crated.save()
             return redirect('Home') 
         else:
             for msg in form.error_messages:
                 messages.error(request, form.error_messages[msg])
-            context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city}
+            context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city, 'sport': sports}
             return render(request, 'Home/Sign_up.html', context)
     
-    context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city}
-            context = {
-                'form': form,
-                'sport': sports
-            }
-            return render(request, 'Home/Sign_up.html', context)
-    
-    context = {
-        'form': form,
-        'sport': sports
-    }
+    context = {'form': form, 'form_customer': form_customer, 'form_address': form_address, 'form_city': form_city, 'sport': sports}
     return render(request, 'Home/Sign_up.html', context)
 
 

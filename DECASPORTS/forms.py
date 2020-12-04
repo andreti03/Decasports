@@ -30,7 +30,7 @@ class Create_customer(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'birthdate': forms.DateInput(format ='%m/%d/%Y', attrs={'class': 'form-control'}),
+            'birthdate': forms.DateInput(format ='%m-%d-%Y', attrs={'class': 'form-control'}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
