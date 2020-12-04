@@ -23,6 +23,7 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from categories.views import Home, Futbol, Basketball, Ping, Natacion, Boxeo, Taekwondo, Atletismo, Ciclismo
+from delivery.views import backup
 
 
 urlpatterns = [
@@ -32,6 +33,7 @@ urlpatterns = [
     path('sign_out/', views.Sign_out, name ='Sign_out'),
     path('update_item/', updateItem, name ='Update_Item'),
     path('Create_bill/', createBill, name ='createBill'),
+    path('factura/', backup, name ='Backup'),
     path('admin/', admin.site.urls),
     path('address/', include(('address.urls','address'))),
     path('bill/', include(('bill.urls','bill'))),

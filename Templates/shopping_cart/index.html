@@ -20,9 +20,7 @@
             <tbody>
               <tr>
                 <td class="p-5 text-center">{{ pr.product_name }}</td>
-                <td class="h5 p-5 ">
-                  <input class="form-control col-md-2 mx-auto d-block" type="search" placeholder="{{ cp.amount }}" aria-label="{{ cp.amount }}">
-                </td>
+                <td class="h5 p-5 ">{{ cp.amount }}</td>
                 <td >
                     <div class="btn-group-vertical p-2" role="group" aria-label="...">
                         <button type="button" data-product={{pr.product_id}} data-action="add" class="btn btn-primary add-btn update-cart">+</button>

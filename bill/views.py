@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from categories.models import Sport
 from products.models import Product
-from cart_product.models import Cart_product
+from cart_product.models import Cart_product, Backup
 from shopping_cart.models import Shopping_cart
 from customers.models import Customer
 from address.models import Address
@@ -51,7 +51,6 @@ def index(request):
     return render(request, 'bill/index.html', context)
 
 def createBill(request):
-    user = request.user
     data = json.loads(request.body)
     cartID = data['cartID']
     action = data['action']
@@ -79,6 +78,8 @@ def createBill(request):
             delivery1 = Delivery(delivery_id = m,bill_number = bill1,customer_id = customer,employer_id = tradesman,delivery_date = dt)
             for cp in cart_pro:
                 if cp.cart_id_id == cart.cart_id:
+                    bk = Backup(cart_product_id = cp.cart_product_id ,amount = cp.amount , price_total = cp.price_total,cart= cp.cart_id, product=cp.product_id, total = total)
+                    bk.save()
                     cp.delete()
             cart.total=0
             cart.save()
@@ -92,6 +93,8 @@ def createBill(request):
             delivery1 = Delivery(delivery_id = m,bill_number = bill1,customer_id = customer,employer_id = tradesman,delivery_date = dt)
             for cp in cart_pro:
                 if cp.cart_id_id == cart.cart_id:
+                    bk = Backup(cart_product_id = cp.cart_product_id ,amount = cp.amount , price_total = cp.price_total,cart= cp.cart_id, product=cp.product_id, total = total)
+                    bk.save()
                     cp.delete()
             cart.total=0
             cart.save()

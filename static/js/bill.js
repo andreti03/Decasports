@@ -20,7 +20,13 @@ for (var i = 0; i < updateBtns.length; i++) {
 function createBill(cartID, action){
     console.log('User is logged in, sending data...')
 
-    var url ='/Create_bill/'
+    if (action=='create') {
+        var url ='/Create_bill/'
+    }else{
+        var url ='/factura/'
+    }
+    console.log('url:', url)
+    console.log('cartID', cartID,'action', action)
 
     fetch(url,{
         method: 'POST',
@@ -28,7 +34,7 @@ function createBill(cartID, action){
             'Content-Type':'application/json',
             'X-CSRFToken': csrftoken,
         },
-        body:JSON.stringify({'cartID': cartID,'action': action})
+        body:JSON.stringify({'cartID': cartID,'action': action}),
     })
     .then((response)=>{
         return response.json()

@@ -46,10 +46,10 @@ def updateItem(request):
             else:
                 cart_pro = Cart_product(cart_product_id = m+1,amount = 0,price_total = product.price,cart_id_id=cart.cart_id, product_id_id=product.product_id)
         
-        print(customers)
-        print(product)
-        print(cart)
-        print(cart_pro)
+        #print(customers)
+        #print(product)
+        #print(cart)
+        #print(cart_pro)
         #Cart_product(cart_product_id = 3,amount = 1,price_total = 50000,product_id = Product3,cart_id= Shopping_cart2)
 
         if action == 'add':
@@ -67,7 +67,7 @@ def updateItem(request):
 
         if cart_pro.amount <= 0:
             cart_pro.delete()
-
+        
         return JsonResponse('Item was added', safe= False)
     else:
         cart_pro = Cart_product(cart_product_id = m+1,amount = 0,price_total = product.price,cart_id_id=cart.cart_id, product_id_id=product.product_id)
