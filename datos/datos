@@ -59,34 +59,39 @@ Admi4.save()
 from tradesman.models import Tradesman
 
 Tradesman1 = Tradesman(employer_id = 1,  
-     	     dni = '1018966155',
-             first_name ='Carlos',       
-             last_name = 'Dueñas',       
-             phone_number = '3102710701')
+     	    dni = '1018966155',
+            first_name ='Carlos',       
+            last_name = 'Dueñas',       
+            phone_number = '3102710701',  
+            auth_user_id = user11)
 
 Tradesman2 = Tradesman(employer_id = 2,  
-     	     dni = '1017575929',
-             first_name ='José',       
-             last_name = 'Martínez',       
-             phone_number = '3005766250')
+     	    dni = '1017575929',
+            first_name ='José',       
+            last_name = 'Martínez',       
+            phone_number = '3005766250',  
+            auth_user_id = user12)
 
 Tradesman3 = Tradesman(employer_id = 3,  
-     	     dni = '1115359568',
-             first_name ='Gregorio',       
-             last_name = 'Rodríguez',       
-             phone_number = '3102680177')
+     	    dni = '1115359568',
+            first_name ='Gregorio',       
+            last_name = 'Rodríguez',       
+            phone_number = '3102680177',  
+            auth_user_id = user13)
 
 Tradesman4 = Tradesman(employer_id = 4,  
-     	     dni = '1293858300',
-             first_name ='Juan',       
-             last_name = 'Jaramillo',       
-             phone_number = '3102283095')
+     	    dni = '1293858300',
+            first_name ='Juan',       
+            last_name = 'Jaramillo',       
+            phone_number = '3102283095',  
+            auth_user_id = user14)
 
 Tradesman5 = Tradesman(employer_id = 5,  
-     	     dni = '1380455471',
-             first_name ='Rubén',       
-             last_name = 'Char',       
-             phone_number = '3206823074')
+     	    dni = '1380455471',
+            first_name ='Rubén',       
+            last_name = 'Char',       
+            phone_number = '3206823074',  
+            auth_user_id = user15)
 
 Tradesman1.save()
 Tradesman2.save()
@@ -232,16 +237,32 @@ user10 = User.objects.create_user('crodriguez27',
          'crodriguez27@gmail.com',
          'Cr270298')
 
-user1.is_staff=True
-user2.is_staff=True
-user3.is_staff=True
-user4.is_staff=True
-user5.is_staff=True
-user6.is_staff=True
-user7.is_staff=True
-user8.is_staff=True
-user9.is_staff=True
-user10.is_staff=True
+user11 = User.objects.create_user('carldueña32',
+         'carldueña32@gmail.com',
+         'Cd270298')
+
+user12 = User.objects.create_user('josemart774',
+         'josemart774@gmail.com',
+         'mar270298')
+
+user13 = User.objects.create_user('gregdriguez57',
+         'gregdriguez57@gmail.com',
+         'gr270298')
+
+user14 = User.objects.create_user('juanjaramilloY0T',
+         'juanjaramilloY0T@gmail.com',
+         'YT270298')
+
+user15 = User.objects.create_user('rubenchar76',
+         'rubenchar76@gmail.com',
+         'RC270298')
+
+user11.is_staff=True
+user12.is_staff=True
+user13.is_staff=True
+user14.is_staff=True
+user15.is_staff=True
+
 
 user1.save()
 user2.save()
@@ -253,6 +274,11 @@ user7.save()
 user8.save()
 user9.save()
 user10.save()
+user11.save()
+user12.save()
+user13.save()
+user14.save()
+user15.save()
 
 
 from customers.models import Customer
@@ -733,7 +759,8 @@ units1 = Units_per_size(product_id = Product1,
 	 m_units = 0,
 	 l_units = 0,
 	 xl_units = 0,
-	 na_units = 100)
+	 na_units = 100,
+     total_units =100)
 
 units2 = Units_per_size(product_id = Product2,
 	 xs_units = 0,
@@ -741,7 +768,8 @@ units2 = Units_per_size(product_id = Product2,
 	 m_units = 45,
 	 l_units = 8,
 	 xl_units = 3,
-	 na_units = 0)
+	 na_units = 0,
+     total_units =71)
 
 units3 = Units_per_size(
 	 product_id = Product3,
@@ -750,25 +778,28 @@ units3 = Units_per_size(
 	 m_units = 0,
 	 l_units = 0,
 	 xl_units = 0,
-	 na_units = 50)
+	 na_units = 50,
+     total_units =50)
 
 units4 = Units_per_size(
-	 product_id = Product4,
-	 xs_units = 0,
-	 s_units = 0,
-	 m_units = 0,
-	 l_units = 0,
-	 xl_units = 0,
-	 na_units = 200)
+	product_id = Product4,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 200,
+    total_units =200)
 
 units5 = Units_per_size(
-	 product_id = Product5,
-	 xs_units = 0,
-	 s_units = 0,
-	 m_units = 0,
-	 l_units = 0,
-	 xl_units = 0,
-	 na_units = 25)
+	product_id = Product5,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 25,
+    total_units =25)
 
 units6 = Units_per_size(
 	product_id = Product6,
@@ -777,7 +808,8 @@ units6 = Units_per_size(
 	m_units = 23,
 	l_units = 65,
 	xl_units = 28,
-	na_units = 0)
+	na_units = 0,
+    total_units =158)
 
 units7 = Units_per_size(
 	product_id = Product7,
@@ -786,7 +818,8 @@ units7 = Units_per_size(
 	m_units = 23,
 	l_units = 76,
 	xl_units = 12,
-	na_units = 0)
+	na_units = 0,
+    total_units =168)
 
 units8 = Units_per_size(
 	product_id = Product8,
@@ -795,7 +828,8 @@ units8 = Units_per_size(
 	m_units = 30,
 	l_units = 11,
 	xl_units = 3,
-	na_units = 0)
+	na_units = 0,
+    total_units =76)
 
 units9 = Units_per_size(
 	product_id = Product9,
@@ -804,7 +838,8 @@ units9 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 100)
+	na_units = 100,
+    total_units =100)
 
 units10 = Units_per_size(
 	product_id = Product10,
@@ -813,7 +848,8 @@ units10 = Units_per_size(
 	m_units = 15,
 	l_units = 30,
 	xl_units = 11,
-	na_units = 0)
+	na_units = 0,
+    total_units =59)
 
 units11 = Units_per_size(
 	product_id = Product11,
@@ -822,7 +858,8 @@ units11 = Units_per_size(
 	m_units = 17,
 	l_units = 20,
 	xl_units = 8,
-	na_units = 0)
+	na_units = 0,
+    total_units =67)
 
 units12 = Units_per_size(
 	product_id = Product12,
@@ -831,7 +868,8 @@ units12 = Units_per_size(
 	m_units = 20,
 	l_units = 45,
 	xl_units = 6,
-	na_units = 0)
+	na_units = 0,
+    total_units =101)
 
 units13 = Units_per_size(
 	product_id = Product13,
@@ -840,7 +878,8 @@ units13 = Units_per_size(
 	m_units = 4,
 	l_units = 21,
 	xl_units = 2,
-	na_units = 0)
+	na_units = 0,
+    total_units =46)
 
 units14 = Units_per_size(
 	product_id = Product14,
@@ -849,7 +888,8 @@ units14 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 97)
+	na_units = 97,
+    total_units =97)
 
 units15 = Units_per_size(
 	product_id = Product15,
@@ -858,7 +898,8 @@ units15 = Units_per_size(
 	m_units = 20,
 	l_units = 31,
 	xl_units = 9,
-	na_units = 0)
+	na_units = 96,
+    total_units =192)
 
 units16 = Units_per_size(
 	product_id = Product16,
@@ -867,7 +908,8 @@ units16 = Units_per_size(
 	m_units = 29,
 	l_units = 21,
 	xl_units = 13,
-	na_units = 0)
+	na_units = 74,
+    total_units =148)
 
 units17 = Units_per_size(
 	product_id = Product17,
@@ -876,7 +918,8 @@ units17 = Units_per_size(
 	m_units = 20,
 	l_units = 11,
 	xl_units = 1,
-	na_units = 0)
+	na_units = 53,
+    total_units =106)
 
 units18 = Units_per_size(
 	product_id = Product18,
@@ -885,7 +928,8 @@ units18 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 80)
+	na_units = 80,
+    total_units =80)
 
 units19 = Units_per_size(
 	product_id = Product19,
@@ -894,7 +938,8 @@ units19 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 100)
+	na_units = 100,
+    total_units =100)
 
 units20 = Units_per_size(
 	product_id = Product20,
@@ -903,7 +948,8 @@ units20 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 75)
+	na_units = 75,
+    total_units =75)
 
 units21 = Units_per_size(
     product_id = Product21,
@@ -912,7 +958,8 @@ units21 = Units_per_size(
     m_units = 30,
     l_units = 56,
     xl_units = 6,
-    na_units = 0
+    na_units = 0,
+    total_units =127
 )
 
 units1.save()

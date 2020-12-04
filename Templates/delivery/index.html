@@ -1,0 +1,42 @@
+{% extends 'Home/Prueba.html'%}
+
+{% block contenido %}
+<div class="container">
+    <div class="bg-white border border-primary">
+        <p class="h1 text-center">Pedidos</p>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Delivery ID</th>
+                <th class="text-center" scope="col">Fecha</th>
+                <th class="text-center" scope="col">Factura ID</th>
+                <th class="text-center" scope="col">Cliente</th>
+                <!-- <th class="text-center" scope="col"></th> -->
+              </tr>
+            </thead>
+{% for del in delivery%}
+{% if del.employer_id_id == tradesman.employer_id %}
+            <tbody>
+              <tr>
+                <td class="p-5 text-center">{{ del.delivery_id }}</td>
+                <td class="p-5 text-center">{{ del.delivery_date }}</td>
+                <td class="p-5 text-center">{{ del.bill_number_id }}</td>
+                <td class="p-5 text-center">{{ del.customer_id.first_name }} {{ del.customer_id.last_name }}</td>
+                <!-- <td class="p-5 text-center">
+                  <a type="button" class="btn btn-primary btn-lg btn-block" href="/factura/" role="button">Ver factura</a>
+                  <a type="button" data-cart={{del.bill_number_id}} data-action="recreate" class="btn btn-primary btn-lg btn-block add-btn create-bill" role="button">Ver factura</a>
+                </td> -->
+              </tr>
+              {% endif%}
+              {% endfor %}
+            <tfoot>
+                <tr>
+                <td colspan="5">
+                    <a type="button" class="btn btn-primary btn-lg btn-block " href="/" role="button">Cancelar</a>
+                </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

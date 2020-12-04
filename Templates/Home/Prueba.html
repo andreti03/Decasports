@@ -33,6 +33,23 @@
 
     <script type="text/javascript">
         var user = '{{request.user}}'
+
+        function getToken(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getToken('csrftoken');
     </script>
 
 </head>
@@ -57,7 +74,9 @@
                 <div class="col-sm-4 col-md-4 py-4 text-center border-right">
                     <h4 class="text-white">Hola {{user.username}} </h4>
                     <small class="form-text text-muted py-2">¡Es un gusto tenerte de vuelta!</small>
+                    {% if not user.is_staff %}
                     <a class="btn btn-primary btn-lg btn-block" href="/shopping_cart/" role="button">Tu carrito</a>
+                    {% endif %}
                     <a class="btn btn-primary btn-lg btn-block" href="/customers/" role="button">Tu perfil</a>
                     <a class="btn btn-primary btn-lg btn-block" href="{% url 'Sign_out' %}" role="button">Cerrar Sesión</a>
                 </div>                
@@ -159,9 +178,24 @@
 
     <div class="py-5 bg-dark" >
         {% block contenido %}
+        {% if user.is_staff and not user.is_superuser%}
         <div class="container">
-           <h1 class="text-white">Bienvenidos!</h1> 
+           <h1 class="text-white">Bienvenidos Tradesman!</h1>
+           <a class="btn btn-dark btn-lg btn-block " href="/deliverys/" role="button">Pedidos</a>
         </div>
+        {% elif user.is_staff and user.is_superuser %}
+        <div class="container">
+            <h1 class="text-white">Bienvenidos Admin!</h1> 
+        </div>
+        {% elif user.is_active %}
+        <div class="container">
+            <h1 class="text-white">Bienvenidos {{user.username}} !</h1> 
+        </div>
+        {% else %}
+        <div class="container">
+            <h1 class="text-white">Bienvenidos!</h1> 
+        </div>
+        {% endif %}
         {% endblock %}
         <div class="container">
             {% if messages %}
@@ -194,6 +228,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="{% static 'assets/dist/js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/cart.js'%}"></script>
+    <script type="text/javascript" src="{% static 'js/bill.js'%}"></script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

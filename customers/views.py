@@ -3,16 +3,19 @@ from .models import Customer
 from address.models import Address
 from city.models import City
 from categories.models import Sport
+from tradesman.models import Tradesman
 from .forms import Update_customer, Update_address
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 
 def index(request):
+    tradesman = Tradesman.objects.all()
     customers = Customer.objects.all()
     address = Address.objects.all()
     city = City.objects.all()
     sports = Sport.objects.all()
     context = {
+        'tradesman':tradesman,
         'customers':customers, 
         'address':address,
         'sport': sports, 

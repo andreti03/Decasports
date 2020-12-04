@@ -3,7 +3,7 @@ from products.models import Product
 from.apps import Cart
 # Create your views here.
 
-def add_product(request,product_id)
+def add_product(request,product_id):
     cart = Cart(request)
     product = Product.objects.get(id=product_id)
     cart.add(product=product)

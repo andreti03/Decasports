@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from . import views
 from django.urls import path, include
-from django.contrib.auth.views import LoginView, LogoutView
 from customers.views import formulario
+from products.views import updateItem
+from bill.views import createBill
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from categories.views import Home, Futbol, Basketball, Ping, Natacion, Boxeo, Taekwondo, Atletismo, Ciclismo
+from delivery.views import backup
 
 
 urlpatterns = [
@@ -29,9 +31,13 @@ urlpatterns = [
     path('login/', views.Sign_in, name ='Sign_in'),
     path('cr_acc/', views.registerPage, name ='Sign_up'),
     path('sign_out/', views.Sign_out, name ='Sign_out'),
+    path('update_item/', updateItem, name ='Update_Item'),
+    path('Create_bill/', createBill, name ='createBill'),
+    path('factura/', backup, name ='Backup'),
     path('admin/', admin.site.urls),
     path('address/', include(('address.urls','address'))),
     path('bill/', include(('bill.urls','bill'))),
+    path('deliverys/', include(('delivery.urls','delivery'))),
     path('categories/', include(('categories.urls','categories'))),
     path('customers/', include(('customers.urls','customers'))),
     path('shopping_cart/', include(('shopping_cart.urls','shopping_cart'))),
