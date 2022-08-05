@@ -1,0 +1,50 @@
+{% extends 'Home/Prueba.html'%}
+
+{% block contenido %}
+<div class="container">
+    <div class="bg-white border border-primary">
+        <p class="h1 text-center">Carrito compras</p>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Producto</th>
+                <th class="text-center" scope="col">Cantidad</th>
+                <th class="text-center" scope="col"></th>
+                <th class="text-center" scope="col">Total</th>
+              </tr>
+            </thead>
+            {% for cp in cart_pro %}
+            {% if cp.cart_id_id == cart.cart_id %}
+            {% for pr in products%}
+            {% if pr.product_id == cp.product_id_id%}
+            <tbody>
+              <tr>
+                <td class="p-5 text-center">{{ pr.product_name }}</td>
+                <td class="h5 p-5 ">{{ cp.amount }}</td>
+                <td >
+                    <div class="btn-group-vertical p-2" role="group" aria-label="...">
+                        <button type="button" data-product={{pr.product_id}} data-action="add" class="btn btn-primary add-btn update-cart">+</button>
+                        <button type="button" data-product={{pr.product_id}} data-action="remove" class="btn btn-primary add-btn update-cart">-</button>
+                    </div>
+                </td>
+                <td class="p-5 text-center">${{cp.price_total}}</td>
+              </tr>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            <tfoot>
+              <tr>
+                <td colspan="5">
+                  <a type="button" class="btn btn-primary btn-lg btn-block " href="/bill/" role="button">
+                    Crear pedido
+                  </a>
+                </td>
+              </tr>
+            </tfoot>
+        </table>
+          <div class="h5 p-5 text-center"> TOTAL = ${{cart.total}}</div>
+    </div>
+</div>
+
+{% endblock %}

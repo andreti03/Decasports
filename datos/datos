@@ -59,34 +59,39 @@ Admi4.save()
 from tradesman.models import Tradesman
 
 Tradesman1 = Tradesman(employer_id = 1,  
-     	     dni = '1018966155',
-             first_name ='Carlos',       
-             last_name = 'Dueñas',       
-             phone_number = '3102710701')
+     	    dni = '1018966155',
+            first_name ='Carlos',       
+            last_name = 'Dueñas',       
+            phone_number = '3102710701',  
+            auth_user_id = user11)
 
 Tradesman2 = Tradesman(employer_id = 2,  
-     	     dni = '1017575929',
-             first_name ='José',       
-             last_name = 'Martínez',       
-             phone_number = '3005766250')
+     	    dni = '1017575929',
+            first_name ='José',       
+            last_name = 'Martínez',       
+            phone_number = '3005766250',  
+            auth_user_id = user12)
 
 Tradesman3 = Tradesman(employer_id = 3,  
-     	     dni = '1115359568',
-             first_name ='Gregorio',       
-             last_name = 'Rodríguez',       
-             phone_number = '3102680177')
+     	    dni = '1115359568',
+            first_name ='Gregorio',       
+            last_name = 'Rodríguez',       
+            phone_number = '3102680177',  
+            auth_user_id = user13)
 
 Tradesman4 = Tradesman(employer_id = 4,  
-     	     dni = '1293858300',
-             first_name ='Juan',       
-             last_name = 'Jaramillo',       
-             phone_number = '3102283095')
+     	    dni = '1293858300',
+            first_name ='Juan',       
+            last_name = 'Jaramillo',       
+            phone_number = '3102283095',  
+            auth_user_id = user14)
 
 Tradesman5 = Tradesman(employer_id = 5,  
-     	     dni = '1380455471',
-             first_name ='Rubén',       
-             last_name = 'Char',       
-             phone_number = '3206823074')
+     	    dni = '1380455471',
+            first_name ='Rubén',       
+            last_name = 'Char',       
+            phone_number = '3206823074',  
+            auth_user_id = user15)
 
 Tradesman1.save()
 Tradesman2.save()
@@ -190,58 +195,91 @@ Address8.save()
 Address9.save()
 Address10.save()
 
-from customer_email.models import Email
+from django.contrib.auth.models import User
 
-Email1 = Email(email_id = 1,
-         email = 'elbichocr7@gmail.com',
-         e_password = 'SIU12345')
+user1 = User.objects.create_user('elbichocr7',
+         'elbichocr7@gmail.com',
+         'SIU12345')
 
-Email2 = Email(email_id = 2,
-         email = 'pedritor26@hotmail.com',
-         e_password = '26041998')
+user2 = User.objects.create_user('pedritor26',
+         'pedritor26@hotmail.com',
+         '26041998')
 
-Email3 = Email(email_id = 3,
-         email = 'ppalacios8@gmail.com',
-         e_password = 'PP2005')
+user3 = User.objects.create_user('ppalacios8',
+         'ppalacios8@gmail.com',
+         'PP2005')
 
-Email4 = Email(email_id = 4,
-         email = 'apontesimon@gmail.com',
-         e_password = '3501723872')
+user4 = User.objects.create_user('apontesimon',
+         'apontesimon@gmail.com',
+         '3501723872')
 
-Email5 = Email(email_id = 5,
-         email = 'vladotorres@hotmail.com',
-         e_password = '12345678')
+user5 = User.objects.create_user('vladotorres',
+         'vladotorres@hotmail.com',
+         '12345678')
 
-Email6 = Email(email_id = 6,
-         email = 'ridu1982@gmail.com',
-         e_password = 'Duque1982')
+user6 = User.objects.create_user('ridu1982',
+         'ridu1982@gmail.com',
+         'Duque1982')
 
-Email7 = Email(email_id = 7,
-         email = 'jorlopez384@gmail.com',
-         e_password = 'Zelop384')
+user7 = User.objects.create_user('jorlopez384',
+         'jorlopez384@gmail.com',
+         'Zelop384')
 
-Email8 = Email(email_id = 8,
-         email = 'jmarquez123@yahoo.com',
-         e_password = 'MARQUEZ0310')
+user8 = User.objects.create_user('jmarquez123',
+         'jmarquez123@yahoo.com',
+         'MARQUEZ0310')
 
-Email9 = Email(email_id = 9,
-         email = 'martinc@gmail.com',
-         e_password = '1974MC_1')
+user9 = User.objects.create_user('martinc',
+         'martinc@gmail.com',
+         '1974MC_1')
 
-Email10 = Email(email_id = 10,
-         email = 'crodriguez27@gmail.com',
-         e_password = 'Cr270298')
+user10 = User.objects.create_user('crodriguez27',
+         'crodriguez27@gmail.com',
+         'Cr270298')
 
-Email1.save()
-Email2.save()
-Email3.save()
-Email4.save()
-Email5.save()
-Email6.save()
-Email7.save()
-Email8.save()
-Email9.save()
-Email10.save()
+user11 = User.objects.create_user('carldueña32',
+         'carldueña32@gmail.com',
+         'Cd270298')
+
+user12 = User.objects.create_user('josemart774',
+         'josemart774@gmail.com',
+         'mar270298')
+
+user13 = User.objects.create_user('gregdriguez57',
+         'gregdriguez57@gmail.com',
+         'gr270298')
+
+user14 = User.objects.create_user('juanjaramilloY0T',
+         'juanjaramilloY0T@gmail.com',
+         'YT270298')
+
+user15 = User.objects.create_user('rubenchar76',
+         'rubenchar76@gmail.com',
+         'RC270298')
+
+user11.is_staff=True
+user12.is_staff=True
+user13.is_staff=True
+user14.is_staff=True
+user15.is_staff=True
+
+
+user1.save()
+user2.save()
+user3.save()
+user4.save()
+user5.save()
+user6.save()
+user7.save()
+user8.save()
+user9.save()
+user10.save()
+user11.save()
+user12.save()
+user13.save()
+user14.save()
+user15.save()
+
 
 from customers.models import Customer
 
@@ -251,7 +289,7 @@ Customer1 = Customer(customer_id = 1,
             birthdate = '1985-2-5',
             phone_number = 3010895578,      
             address_id = Address1,  
-            email_id = Email1)
+            auth_user_id = user1)
 
 Customer2 = Customer(customer_id = 2,
             first_name = 'Pedro',
@@ -259,7 +297,7 @@ Customer2 = Customer(customer_id = 2,
             birthdate = '1998-4-26',
             phone_number = 3027423911,      
             address_id = Address2,  
-            email_id = Email2)
+            auth_user_id = user2)
 
 Customer3 = Customer(customer_id = 3,
             first_name = 'Simón',
@@ -267,7 +305,7 @@ Customer3 = Customer(customer_id = 3,
             birthdate = '1986-3-13',
             phone_number = 3184379454,      
             address_id = Address3,  
-            email_id = Email3)
+            auth_user_id = user3)
 
 Customer4 = Customer(customer_id = 4,
             first_name = 'Vladimir',
@@ -275,7 +313,7 @@ Customer4 = Customer(customer_id = 4,
             birthdate = '1969-4-9',
             phone_number = 3501723872,      
             address_id = Address4,  
-            email_id = Email4)
+            auth_user_id = user4)
 
 Customer5 = Customer(customer_id = 5,
             first_name = 'Ricardo',
@@ -283,7 +321,7 @@ Customer5 = Customer(customer_id = 5,
             birthdate = '1985-2-5',
             phone_number = 3124385630,      
             address_id = Address5,  
-            email_id = Email5)
+            auth_user_id = user5)
 
 Customer6 = Customer(customer_id = 6,
             first_name = 'Jorge',
@@ -291,7 +329,7 @@ Customer6 = Customer(customer_id = 6,
             birthdate = '1995-2-5',
             phone_number = 3108423648,      
             address_id = Address6,  
-            email_id = Email6)
+            auth_user_id = user6)
 
 Customer7 = Customer(customer_id = 7,
             first_name = 'Juan',
@@ -299,7 +337,7 @@ Customer7 = Customer(customer_id = 7,
             birthdate = '1989-5-16',
             phone_number = 3170067352,      
             address_id = Address7,  
-            email_id = Email7)
+            auth_user_id = user7)
 
 Customer8 = Customer(customer_id = 8,
             first_name = 'Pablo',
@@ -307,7 +345,7 @@ Customer8 = Customer(customer_id = 8,
             birthdate = '2005-11-13',
             phone_number = 3067367483,      
             address_id = Address8,  
-            email_id = Email8)
+            auth_user_id = user8)
 
 Customer9 = Customer(customer_id = 9,
             first_name = 'Martin',
@@ -315,7 +353,7 @@ Customer9 = Customer(customer_id = 9,
             birthdate = '1974-8-11',
             phone_number = 3116289262,      
             address_id = Address9,  
-            email_id = Email9)
+            auth_user_id = user9)
 
 Customer10 = Customer(customer_id = 10,
             first_name = 'Carlos',
@@ -323,7 +361,7 @@ Customer10 = Customer(customer_id = 10,
             birthdate = '1998-2-27',
             phone_number = 3001658679,      
             address_id = Address10,  
-            email_id = Email10)
+            auth_user_id = user10)
 
 Customer1.save()
 Customer2.save()
@@ -458,6 +496,13 @@ Product20 = Product(product_id = 20,
            product_sport_id = Sport7,
            admin_id = Admi1)
 
+Product21 = Product(product_id = 21,
+            product_name = 'Medias',
+            price = 10000,
+            product_sport_id = Sport7,
+            admin_id = Admi1)
+
+
 Product1.save()
 Product2.save()
 Product3.save()
@@ -478,6 +523,7 @@ Product17.save()
 Product18.save()
 Product19.save()
 Product20.save()
+Product21.save()
 
 from shopping_cart.models import Shopping_cart
 
@@ -713,7 +759,8 @@ units1 = Units_per_size(product_id = Product1,
 	 m_units = 0,
 	 l_units = 0,
 	 xl_units = 0,
-	 na_units = 100)
+	 na_units = 100,
+     total_units =100)
 
 units2 = Units_per_size(product_id = Product2,
 	 xs_units = 0,
@@ -721,7 +768,8 @@ units2 = Units_per_size(product_id = Product2,
 	 m_units = 45,
 	 l_units = 8,
 	 xl_units = 3,
-	 na_units = 0)
+	 na_units = 0,
+     total_units =71)
 
 units3 = Units_per_size(
 	 product_id = Product3,
@@ -730,25 +778,28 @@ units3 = Units_per_size(
 	 m_units = 0,
 	 l_units = 0,
 	 xl_units = 0,
-	 na_units = 50)
+	 na_units = 50,
+     total_units =50)
 
 units4 = Units_per_size(
-	 product_id = Product4,
-	 xs_units = 0,
-	 s_units = 0,
-	 m_units = 0,
-	 l_units = 0,
-	 xl_units = 0,
-	 na_units = 200)
+	product_id = Product4,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 200,
+    total_units =200)
 
 units5 = Units_per_size(
-	 product_id = Product5,
-	 xs_units = 0,
-	 s_units = 0,
-	 m_units = 0,
-	 l_units = 0,
-	 xl_units = 0,
-	 na_units = 25)
+	product_id = Product5,
+	xs_units = 0,
+	s_units = 0,
+	m_units = 0,
+	l_units = 0,
+	xl_units = 0,
+	na_units = 25,
+    total_units =25)
 
 units6 = Units_per_size(
 	product_id = Product6,
@@ -757,7 +808,8 @@ units6 = Units_per_size(
 	m_units = 23,
 	l_units = 65,
 	xl_units = 28,
-	na_units = 0)
+	na_units = 0,
+    total_units =158)
 
 units7 = Units_per_size(
 	product_id = Product7,
@@ -766,7 +818,8 @@ units7 = Units_per_size(
 	m_units = 23,
 	l_units = 76,
 	xl_units = 12,
-	na_units = 0)
+	na_units = 0,
+    total_units =168)
 
 units8 = Units_per_size(
 	product_id = Product8,
@@ -775,7 +828,8 @@ units8 = Units_per_size(
 	m_units = 30,
 	l_units = 11,
 	xl_units = 3,
-	na_units = 0)
+	na_units = 0,
+    total_units =76)
 
 units9 = Units_per_size(
 	product_id = Product9,
@@ -784,7 +838,8 @@ units9 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 100)
+	na_units = 100,
+    total_units =100)
 
 units10 = Units_per_size(
 	product_id = Product10,
@@ -793,7 +848,8 @@ units10 = Units_per_size(
 	m_units = 15,
 	l_units = 30,
 	xl_units = 11,
-	na_units = 0)
+	na_units = 0,
+    total_units =59)
 
 units11 = Units_per_size(
 	product_id = Product11,
@@ -802,7 +858,8 @@ units11 = Units_per_size(
 	m_units = 17,
 	l_units = 20,
 	xl_units = 8,
-	na_units = 0)
+	na_units = 0,
+    total_units =67)
 
 units12 = Units_per_size(
 	product_id = Product12,
@@ -811,7 +868,8 @@ units12 = Units_per_size(
 	m_units = 20,
 	l_units = 45,
 	xl_units = 6,
-	na_units = 0)
+	na_units = 0,
+    total_units =101)
 
 units13 = Units_per_size(
 	product_id = Product13,
@@ -820,7 +878,8 @@ units13 = Units_per_size(
 	m_units = 4,
 	l_units = 21,
 	xl_units = 2,
-	na_units = 0)
+	na_units = 0,
+    total_units =46)
 
 units14 = Units_per_size(
 	product_id = Product14,
@@ -829,7 +888,8 @@ units14 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 97)
+	na_units = 97,
+    total_units =97)
 
 units15 = Units_per_size(
 	product_id = Product15,
@@ -838,7 +898,8 @@ units15 = Units_per_size(
 	m_units = 20,
 	l_units = 31,
 	xl_units = 9,
-	na_units = 0)
+	na_units = 96,
+    total_units =192)
 
 units16 = Units_per_size(
 	product_id = Product16,
@@ -847,7 +908,8 @@ units16 = Units_per_size(
 	m_units = 29,
 	l_units = 21,
 	xl_units = 13,
-	na_units = 0)
+	na_units = 74,
+    total_units =148)
 
 units17 = Units_per_size(
 	product_id = Product17,
@@ -856,7 +918,8 @@ units17 = Units_per_size(
 	m_units = 20,
 	l_units = 11,
 	xl_units = 1,
-	na_units = 0)
+	na_units = 53,
+    total_units =106)
 
 units18 = Units_per_size(
 	product_id = Product18,
@@ -865,7 +928,8 @@ units18 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 80)
+	na_units = 80,
+    total_units =80)
 
 units19 = Units_per_size(
 	product_id = Product19,
@@ -874,7 +938,8 @@ units19 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 100)
+	na_units = 100,
+    total_units =100)
 
 units20 = Units_per_size(
 	product_id = Product20,
@@ -883,7 +948,19 @@ units20 = Units_per_size(
 	m_units = 0,
 	l_units = 0,
 	xl_units = 0,
-	na_units = 75)
+	na_units = 75,
+    total_units =75)
+
+units21 = Units_per_size(
+    product_id = Product21,
+    xs_units = 23,
+    s_units = 12,
+    m_units = 30,
+    l_units = 56,
+    xl_units = 6,
+    na_units = 0,
+    total_units =127
+)
 
 units1.save()
 units2.save()
@@ -905,6 +982,7 @@ units17.save()
 units18.save()
 units19.save()
 units20.save()
+units21.save()
 
 
 from bill.models import Bill

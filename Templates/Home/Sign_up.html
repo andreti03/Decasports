@@ -1,0 +1,90 @@
+{% extends 'Home/Prueba.html'%}
+
+{% block contenido %} 
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card bg-dark " style="width: 50rem;">
+        <div class="card-header ">        
+            <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col text-white">
+                    <label for="imputfirst_name">
+                        Nombre
+                    </label>
+                    {{form_customer.first_name}}
+                </div>
+                <div class="col text-white">
+                    <label for="imputfirst_name">
+                        Apellido
+                    </label>
+                    {{form_customer.last_name}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputPassword2">Número de telefono</label>
+                        <div>{{form_customer.phone_number}}</div>
+                    </div>
+                    
+                </div>
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputPassword2">Fecha de nacimiento</label>
+                        <div>{{ form_customer.birthdate }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputPassword2">País</label>
+                        <div>{{ form_city.country }}</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputPassword2">Ciudad</label>
+                        <div>{{form_city.city_name}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputEmail">Dirección</label>
+                        <div>{{ form_address.address }}</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group text-white ">
+                        <label for="inputUsername">Nombre de usuario</label>
+                        <div>{{ form.username }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group text-white ">
+                <label for="inputEmail">Email</label>
+                <div>{{ form.email }}</div>
+            </div>
+            <div class="form-group text-white ">
+                <label for="inputPassword">Contraseña</label>
+                <div>{{ form.password1 }}</div>
+            </div>
+            <div class="form-group text-white ">
+                <label for="inputPassword2">Confirme Contraseña</label>
+                <div>{{ form.password2 }}</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="SGU">Regístrate en Decasports</button>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+    
+{% endblock %}

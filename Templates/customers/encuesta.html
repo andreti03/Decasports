@@ -1,0 +1,83 @@
+{% extends 'Home/Prueba.html'%}
+
+{% block contenido %}
+
+<div class="container d-flex justify-content-center align-items-center">
+    <form method="POST">{% csrf_token %}
+    <div class="card bg-dark " style="width: 65rem;">
+        <blockquote class="blockquote text-center">
+            <p class="h2 text-white">TUS DATOS</p>
+            </blockquote>
+        <div class="card-header ">  
+                <div class="row">
+                    <div class="col">
+                        <label for="imputfirst_name">
+                            <p class = "h4 text-white">Nombre</p>
+                        </label>
+                        {{form.first_name}}
+                    </div>
+                    <div class="col">
+                        <label for="imputfirst_name">
+                            <p class = "h4 text-white">Apellido</p>
+                        </label>
+                        {{form.last_name}}
+                    </div>
+                </div>
+                <br>
+                <p class="h4 text-white">  Fecha de nacimiento </p>
+                <div class="row">
+                    <div class="col">
+                    {{form.birthdate}}
+                    </div>
+                </div>
+                    <small class="text-white text-muted"> La fecha de nacimiento de acuerdo a nuestra Política de Privacidad. ¡Te haremos un regalo por tu cumpleaños!</small>
+                    <p class="h2 p-4 text-white text-center"> Información de contacto </p>
+                <div class="row">
+                    <div class="col">
+                        <label for="imputfirst_name">
+                            <p class = "h4 text-white">Número de teléfono</p>
+                        </label>
+                        {{form.phone_number}}
+                    </div>
+                    <div class="col">
+                        <label for="imputfirst_name">
+                            <p class = "h4 text-white">Dirección</p>
+                        </label>
+                        {{form2.address}}
+                    </div>
+                </div>
+                <div class="row py-4">
+                    <p class="h4 text-white col-sm-4">Sexo</p>
+                </div>
+                <div class="row col-sm-4">
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Hombre</label>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Mujer</label>
+                        </div>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <div style="color:aliceblue">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                            <label class="form-check-label" for="inlineRadio3">Otros</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <button class="btn btn-lg btn-primary" type="submit">Actualizar información</button>
+            </div>
+        </div>
+    </form>
+</div>  
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'Home/Prueba.html'%}
+
+{% block contenido %} 
+{% load crispy_forms_tags %}
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="card bg-dark " style="width: 20rem;">
+    <div class="card-header ">
+    <form id="login-box" class="form " action="" method="post">
+        {% csrf_token %}
+        <div class="text-white">{{ form|crispy }}</div>
+    </div>
+    <div class="card-body">
+        <div class="form-group text-white ">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" >Ingresar</button>
+            <a class="btn btn-primary btn-lg btn-block" href="/cr_acc/" role="button">Registrarse</a>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+
+{% endblock %}
